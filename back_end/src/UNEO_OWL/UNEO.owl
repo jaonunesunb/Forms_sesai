@@ -1,0 +1,816 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY obo "http://purl.obolibrary.org/obo/" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY oboInOwl "http://www.geneontology.org/formats/oboInOwl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#"
+     xml:base="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27">
+        <owl:imports rdf:resource="http://ontofox.hegroup.org/3p9tourz.owl"/>
+        <owl:imports rdf:resource="&obo;aeon.owl"/>
+        <owl:imports rdf:resource="&obo;ro.owl"/>
+        <owl:imports rdf:resource="&obo;bfo/2.0/bfo.owl"/>
+        <owl:imports rdf:resource="&obo;iao/ontology-metadata.owl"/>
+        <owl:imports rdf:resource="&obo;your_ontology/external/NCBITaxon_import.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000054 -->
+
+    <rdf:Description rdf:about="&obo;BFO_0000054">
+        <rdfs:range rdf:resource="&obo;AEON_0000196"/>
+        <rdfs:range rdf:resource="&obo;RO_0002310"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Atividade_acadêmica&apos;"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Discente_de_Pós-graduação&apos;"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Discente_de_especialização&apos;"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Discente_de_graduação&apos;"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Evento_sociocultural_informal&apos;"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Discente"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Doutorando"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Mestrando"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Servidor"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000066 -->
+
+    <rdf:Description rdf:about="&obo;BFO_0000066">
+        <rdfs:domain rdf:resource="&obo;AEON_0000196"/>
+        <rdfs:domain rdf:resource="&obo;RO_0002310"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Atividade_acadêmica&apos;"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Evento_sociocultural_informal&apos;"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Universidade_de_Brasília"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OBI_0000846 -->
+
+    <rdf:Description rdf:about="&obo;OBI_0000846">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Discente_de_Pós-graduação&apos;"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Discente_de_especialização&apos;"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Discente_de_graduação&apos;"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Discente"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Doutorando"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Mestrando"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Servidor"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Universidade_de_Brasília"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0000056 -->
+
+    <rdf:Description rdf:about="&obo;RO_0000056">
+        <rdfs:range rdf:resource="&obo;AEON_0000196"/>
+        <rdfs:range rdf:resource="&obo;NCIT_C20181"/>
+        <rdfs:range rdf:resource="&obo;RO_0002310"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Atividade_acadêmica&apos;"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Evento_sociocultural_informal&apos;"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Discente"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Servidor"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0003308 -->
+
+    <rdf:Description rdf:about="&obo;RO_0003308">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Discente_de_Pós-graduação&apos;"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Discente_de_especialização&apos;"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Discente_de_graduação&apos;"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Professor_adjunto&apos;"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Professor_substituto&apos;"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Discente"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Discente"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Docente"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Doutorando"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Mestrando"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Professor_associado"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Professor_auxiliar"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Professor_titular"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Servidor"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0017003 -->
+
+    <rdf:Description rdf:about="&obo;RO_0017003">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Professor_assistente&apos;"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Professor_substituto&apos;"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Professor_visitante&apos;"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Servidor_técnico_administrativo&apos;"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Discente"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Professor_associado"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Professor_auxiliar"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;São_orientados&apos; -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;São_orientados&apos;">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Discente_de_Pós-graduação&apos;"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Discente_de_especialização&apos;"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Discente_de_graduação&apos;"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Professor_adjunto&apos;"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Professor_assistente&apos;"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Professor_substituto&apos;"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Professor_visitante&apos;"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Discente"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Docente"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Doutorando"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Mestrando"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Professor_associado"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Professor_auxiliar"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Professor_titular"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#executaPalestra -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#executaPalestra"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#orientam -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#orientam">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Discente_de_Pós-graduação&apos;"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Discente_de_especialização&apos;"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Discente_de_graduação&apos;"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Professor_adjunto&apos;"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Professor_assistente&apos;"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Professor_substituto&apos;"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Professor_visitante&apos;"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Discente"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Docente"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Doutorando"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Mestrando"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Professor_associado"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Professor_auxiliar"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Professor_titular"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#podeSerProfessor -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#podeSerProfessor"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Atividade_acadêmica&apos; -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Atividade_acadêmica&apos;">
+        <rdfs:subClassOf rdf:resource="&obo;BFO_0000015"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Atividade_acadêmica&apos;"/>
+        <obo:IAO_0000118 xml:lang="pt-br">Atividade universitária</obo:IAO_0000118>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+        <obo:IAO_0000115 xml:lang="pt-br">Processo ocorrente de cunho acadêmico realizado por pessoas que exercem o papel de estudante com a participação de pessoas que exercem o papel de docentes.</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Atividade_universitária_cientifica&apos; -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Atividade_universitária_cientifica&apos;">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Atividade_acadêmica&apos;"/>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Atividade_universitária_de_extensão&apos; -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Atividade_universitária_de_extensão&apos;">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Atividade_acadêmica&apos;"/>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Atividade_universitária_pedagógica&apos; -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Atividade_universitária_pedagógica&apos;">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Atividade_acadêmica&apos;"/>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Batalha_das_escadas&apos; -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Batalha_das_escadas&apos;">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Batalha_de_rap&apos;"/>
+        <obo:IAO_0000118 xml:lang="pt-br">Batalha de rap da UnB</obo:IAO_0000118>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+        <obo:IAO_0000115 xml:lang="pt-br">Processo ocorrente sociocultural universitário acadêmico realizado orgânicamente por pessoas que exercem o papel de estudantes de graduação na Universidade de Brasília</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Batalha_de_rap&apos; -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Batalha_de_rap&apos;">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Evento_universitário_informal&apos;"/>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+        <obo:IAO_0000115 xml:lang="pt-br">Processo ocorrente sociocultural  realizado orgânicamente por pessoas.</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Discente_de_Pós-graduação&apos; -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Discente_de_Pós-graduação&apos;">
+        <rdfs:label xml:lang="pt-br">Discente de pós-graduação</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Discente"/>
+        <obo:IAO_0000118 xml:lang="pt-br">Estudante de pós-graduação</obo:IAO_0000118>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Discente_de_especialização&apos; -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Discente_de_especialização&apos;">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Discente_de_Pós-graduação&apos;"/>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Discente_de_graduação&apos; -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Discente_de_graduação&apos;">
+        <rdfs:label xml:lang="pt-br">Discente de graduação</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Discente"/>
+        <obo:IAO_0000118 xml:lang="pt-br">Estudante universitário</obo:IAO_0000118>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Evento_sociocultural_informal&apos; -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Evento_sociocultural_informal&apos;">
+        <rdfs:subClassOf rdf:resource="&obo;BFO_0000015"/>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+        <obo:IAO_0000115 xml:lang="pt-br">Processo de cunho sociocultural ocorrente sem organização formalizada</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Evento_universitário_informal&apos; -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Evento_universitário_informal&apos;">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Evento_sociocultural_informal&apos;"/>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+        <obo:IAO_0000115 xml:lang="pt-br">Processo de cunho sociocultural ocorrente em ambientes universitários/acadêmicos sem organização formalizada</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;HH_da_Sincera&apos; -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;HH_da_Sincera&apos;">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Happy_Hour&apos;"/>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+        <obo:IAO_0000115 xml:lang="pt-br">Processo ocorrente sociocultural realizado orgânicamente por pessoas que exercem o papel de estudantes de graduação nas quintas-feiras geralmente envolvendo o consumo de bebidas alcoólicas e música.</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Happy_Hour&apos; -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Happy_Hour&apos;">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Evento_universitário_informal&apos;"/>
+        <obo:IAO_0000118 xml:lang="pt-br">HH</obo:IAO_0000118>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+        <obo:IAO_0000115 xml:lang="pt-br">Processo ocorrente realizado orgânicamente por pessoas geralmente envolvendo o consumo de bebidas alcoólicas.</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Manifestação_artística&apos; -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Manifestação_artística&apos;">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Evento_universitário_informal&apos;"/>
+        <obo:IAO_0000118 xml:lang="pt-br">&apos;Performance artística&apos;</obo:IAO_0000118>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+        <obo:IAO_0000115 xml:lang="pt-br">Processo ocorrente sociocultural realizado orgânicamente por pessoas que exercem o papel de artistas. Este processo é realizado para expressar algum sentimento.</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Pinte_o_que_quiser_.._no_meu_corpo&apos; -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Pinte_o_que_quiser_.._no_meu_corpo&apos;">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Manifestação_artística&apos;"/>
+        <obo:IAO_0000115 xml:lang="pt-br">Processo ocorrente sociocultural realizado orgânicamente por pessoas que exercem o papel de estudantes de graduação de cursos das áreas de arte. O processo envolve a pintura do corpo dos alunos de arte por outros alunos que estejam passando próximos a esta manifestação.</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Professor_adjunto&apos; -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Professor_adjunto&apos;">
+        <rdfs:label xml:lang="pt-br">Professor adjunto</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Docente"/>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Professor_assistente&apos; -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Professor_assistente&apos;">
+        <rdfs:label xml:lang="pt-br">Professor assistente</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Docente"/>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Professor_substituto&apos; -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Professor_substituto&apos;">
+        <rdfs:label xml:lang="pt-br">Professor substituto</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Docente"/>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Professor_visitante&apos; -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Professor_visitante&apos;">
+        <rdfs:label xml:lang="pt-br">Professor visitante</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Docente"/>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Programa_Institucional_de_Bolsas_de_Iniciação_à_docência&apos; -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Programa_Institucional_de_Bolsas_de_Iniciação_à_docência&apos;">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Atividade_universitária_pedagógica&apos;"/>
+        <obo:IAO_0000118>PIBID</obo:IAO_0000118>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Projeto_de_extensão&apos; -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Projeto_de_extensão&apos;">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Atividade_universitária_de_extensão&apos;"/>
+        <obo:IAO_0000118>PIBEX</obo:IAO_0000118>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Projeto_de_iniciação_científica&apos; -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Projeto_de_iniciação_científica&apos;">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Atividade_universitária_cientifica&apos;"/>
+        <obo:IAO_0000118>PIBIC</obo:IAO_0000118>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Servidor_técnico_administrativo&apos; -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Servidor_técnico_administrativo&apos;">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Servidor"/>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Discente -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Discente">
+        <rdfs:subClassOf rdf:resource="&obo;BFO_0000023"/>
+        <obo:IAO_0000118 xml:lang="pt-br">Estudante</obo:IAO_0000118>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Docente -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Docente">
+        <rdfs:label xml:lang="pt-br">Docente</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Servidor"/>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+        <obo:IAO_0000118 xml:lang="pt-br">Professor</obo:IAO_0000118>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Doutorando -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Doutorando">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Discente_de_Pós-graduação&apos;"/>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Mestrando -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Mestrando">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Discente_de_Pós-graduação&apos;"/>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Professor_associado -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Professor_associado">
+        <rdfs:label xml:lang="pt-br">Professor associado</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Docente"/>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Professor_auxiliar -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Professor_auxiliar">
+        <rdfs:label xml:lang="pt-br">Professor auxilixar</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Docente"/>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Professor_titular -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Professor_titular">
+        <rdfs:label xml:lang="pt-br">Professor titular</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Docente"/>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Servidor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Servidor">
+        <rdfs:label xml:lang="pt-br">Servidor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&obo;BFO_0000023"/>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+        <obo:IAO_0000118 xml:lang="pt-br">Servidor público</obo:IAO_0000118>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Trote -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Trote">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Evento_universitário_informal&apos;"/>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+        <obo:IAO_0000115 xml:lang="pt-br">Processo ocorrente sociocultural realizado orgânicamente por pessoas que exercem o papel de estudantes universitários. Envolve o acolhimento ou zombaria dos alunos recém ingressos a universidade.</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Trote_dos_Musos -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Trote_dos_Musos">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Trote"/>
+        <oboInOwl:created_by xml:lang="pt-br">João Pedro Sousa Nunes</oboInOwl:created_by>
+        <obo:IAO_0000115 xml:lang="pt-br">Processo ocorrente sociocultural realizado orgânicamente por pessoas que exercem o papel de estudantes universitários. Envolve o acolhimento dos alunos recém ingressos ao curso de Museologia.</obo:IAO_0000115>
+        <skos:definition xml:lang="pt-br">Trote do curso de Museologia</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Universidade_de_Brasília -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Universidade_de_Brasília">
+        <rdfs:subClassOf rdf:resource="&obo;NCIT_C48647"/>
+        <obo:IAO_0000115 xml:lang="pt-br">A Universidade de Brasília (UnB) é uma instituição de ensino superior pública e de pesquisa, localizada em Brasília, Distrito Federal, Brasil. Ela se destaca nacional e internacionalmente por sua excelência acadêmica e compromisso com o avanço do conhecimento e da transformação social.</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Clara_Meireles -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Clara_Meireles">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Professor_visitante&apos;"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Docente"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Servidor"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Universidade_de_Brasília"/>
+        <dc:description xml:lang="pt-br">Pessoa que exerce o cargo de professora visitante no curso de Enfermagem</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Fabiana_Silveira -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Fabiana_Silveira">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Discente_de_Pós-graduação&apos;"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Discente"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Mestrando"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Universidade_de_Brasília"/>
+        <dc:description xml:lang="pt-br">Pessoa que exerce o papel de estudante de mestrado em Serviço Social</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Fernanda_Farinelli -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Fernanda_Farinelli">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Docente"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Professor_titular"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Servidor"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Universidade_de_Brasília"/>
+        <dc:description xml:lang="pt-br">Pessoa que exerce o cargo de professora titular em Biblioteconomia</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#HH_da_Sincera -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#HH_da_Sincera">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Evento_universitário_informal&apos;"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#José_Eduardo_Oliveira -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#José_Eduardo_Oliveira">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Trote_dos_Musos"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Universidade_de_Brasília"/>
+        <dc:description xml:lang="pt-br">Pessoa que exerce o papel de estudante de Museologia</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#João_Pedro_Antunes -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#João_Pedro_Antunes">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Discente_de_Pós-graduação&apos;"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Discente"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Doutorando"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Universidade_de_Brasília"/>
+        <dc:description xml:lang="pt-br">Pessoa que exerce o papel de estudante de doutorado em Ciência da Computação</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Leticia_Antunes -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Leticia_Antunes">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;HH_da_Sincera&apos;"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Happy_Hour&apos;"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Universidade_de_Brasília"/>
+        <dc:description xml:lang="pt-br">Pessoa que exerce o papel de estudante de graduação em Direito</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Levantamento_de_Processos_KIP_em_Redação_Jornalística -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Levantamento_de_Processos_KIP_em_Redação_Jornalística">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Atividade_acadêmica&apos;"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Atividade_universitária_cientifica&apos;"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Projeto_de_iniciação_científica&apos;"/>
+        <dc:description xml:lang="pt-br">Projeto de iniciação científica nas áreas de Ciência da Computação e Jornalismo</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Lucas_de_Abreu -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Lucas_de_Abreu">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Professor_substituto&apos;"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Docente"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Servidor"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Universidade_de_Brasília"/>
+        <dc:description xml:lang="pt-br">Pessoa que exerce o papel de professor substituto no curso de História</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Luisa_de_Lucca -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Luisa_de_Lucca">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Manifestação_artística&apos;"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Pinte_o_que_quiser_.._no_meu_corpo&apos;"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Universidade_de_Brasília"/>
+        <dc:description xml:lang="pt-br">Pessoa que exerce o papel de estudante de graduação no curso de Artes Cênicas</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Luiz_Felipe -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Luiz_Felipe">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Discente_de_Pós-graduação&apos;"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Discente_de_especialização&apos;"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Discente"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Universidade_de_Brasília"/>
+        <dc:description xml:lang="pt-br">Pessoa que exerce o papel de estudante de especialização em Enfermagem</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Luíza_Nunes -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Luíza_Nunes">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Professor_adjunto&apos;"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Docente"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Servidor"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Universidade_de_Brasília"/>
+        <dc:description xml:lang="pt-br">Pessoa que exerce o cargo de professora adjunta no curso de Biologia</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Maria_Fagudes -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Maria_Fagudes">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Docente"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Professor_auxiliar"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Servidor"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Universidade_de_Brasília"/>
+        <dc:description xml:lang="pt-br">Pessoa que exerce o cargo de professora auxiliar no curso de Educação Física</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Matheus_Silveira -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Matheus_Silveira">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Professor_assistente&apos;"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Docente"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Servidor"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Universidade_de_Brasília"/>
+        <dc:description xml:lang="pt-br">Pessoa que exerce o cargo de professor assistente no curso de Engenharia Elétrica</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Michele_Silva -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Michele_Silva">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Docente"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Professor_associado"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Servidor"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Universidade_de_Brasília"/>
+        <dc:description xml:lang="pt-br">Pessoa que exerce o cargo de professora associada no curso de Pedagogia</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Mônica_Machado -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Mônica_Machado">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Servidor_técnico_administrativo&apos;"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Servidor"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Universidade_de_Brasília"/>
+        <dc:description xml:lang="pt-br">Pessoa que exerce o papel de servidora técnico-administrativa na Fundação Universidade de Brasília</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Paula_Fernandes -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Paula_Fernandes">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Discente_de_graduação&apos;"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Discente"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Universidade_de_Brasília"/>
+        <dc:description xml:lang="pt-br">Pessoa que exerce o papel de estudante de graduação no curso de Ciências Sociais</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Paulo_Pereira -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Paulo_Pereira">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Batalha_das_escadas&apos;"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Universidade_de_Brasília"/>
+        <dc:description xml:lang="pt-br">Pessoa que exerce o papel de estudante de graduação em Ciências Sociais</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Pessoa:_01 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Pessoa:_01">
+        <rdf:type rdf:resource="&obo;NCBITaxon_9606"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Prática_do_ensino_de_história_para_ex-militares -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Prática_do_ensino_de_história_para_ex-militares">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Atividade_acadêmica&apos;"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Atividade_universitária_pedagógica&apos;"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Programa_Institucional_de_Bolsas_de_Iniciação_à_docência&apos;"/>
+        <dc:description xml:lang="pt-br">Programa de iniciação a docência na área de Licenciatura em História</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Prática_trabalhista_de_Primeiro_grau_no_âmbito_da_10ª_região -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#Prática_trabalhista_de_Primeiro_grau_no_âmbito_da_10ª_região">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Atividade_acadêmica&apos;"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Atividade_universitária_de_extensão&apos;"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/pegad/ontologies/2023/5/UNEO-ontology-27#&apos;Projeto_de_extensão&apos;"/>
+        <dc:description xml:lang="pt-br">Projeto de extensão nas áreas de Direitos Humanos e Justiça</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="&dc;creator">
+        <oboInOwl:created_by></oboInOwl:created_by>
+    </rdf:Description>
+    <rdf:Description rdf:about="&oboInOwl;creation_date">
+        <dc:date></dc:date>
+    </rdf:Description>
+    <rdf:Description rdf:about="&obo;AEON_0000001">
+        <obo:IAO_0000118 xml:lang="pt-br">Evento universitário</obo:IAO_0000118>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

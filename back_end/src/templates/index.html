@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ontology Browser</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Ontology Browser</h1>
+        <form id="ontologyForm">
+            <div class="form-group">
+                <label for="class_uri">Escolha uma classe:</label>
+                <select class="form-control" id="class_uri" name="class_uri">
+                    <option value="http://www.semanticweb.org/pedro/ONTAE/ONTAE00000023">Curso</option>
+                    <option value="http://www.semanticweb.org/pedro/ONTAE/ONTAE00000024">Evento Acadêmica</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Processar</button>
+        </form>
+
+        <div class="mt-5" id="results">
+            <h2>Subclasses</h2>
+            <ul id="subclasses_list"></ul>
+            
+            <h2>Restrições</h2>
+            <ul id="restrictions_list"></ul>
+
+            <h2>Restrições Herdadas</h2>
+            <ul id="inherited_restrictions_list"></ul>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            function updateUI(data) {
+                $('#subclasses_list').empty();
+                if (data.subclasses.length > 0) {
+                    data.subclasses.forEach(function(subclass) {
+                        $('#subclasses_list').append('<li class="subclass-item" data-uri="' + subclass + '">' + subclass + '</li>');
+                    });
+                } else {
+                    $('#restrictions_list').empty();
+                    data.result.forEach(function(restriction) {
+                        $('#restrictions_list').append('<li>Propriedade: ' + restriction[0] + ', Classe: ' + restriction[1] + ', Cardinalidade: ' + restriction[2] + '</li>');
+                    });
+
+                    $('#inherited_restrictions_list').empty();
+                    data.inherited_restrictions.forEach(function(restriction) {
+                        $('#inherited_restrictions_list').append('<li>Propriedade: ' + restriction[0] + ', Classe: ' + restriction[1] + ', Cardinalidade: ' + restriction[2] + '</li>');
+                    });
+                }
+            }
+
+            $('#ontologyForm').on('submit', function(e) {
+                e.preventDefault();
+                const classUri = $('#class_uri').val();
+                $.post('/process', { class_uri: classUri }, function(data) {
+                    updateUI(data);
+                });
+            });
+
+            $(document).on('click', '.subclass-item', function() {
+                const classUri = $(this).data('uri');
+                $.post('/process', { class_uri: classUri }, function(data) {
+                    updateUI(data);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
