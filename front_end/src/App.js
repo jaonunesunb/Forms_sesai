@@ -8,8 +8,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   const [classHierarchy, setClassHierarchy] = useState([
     {
-      label: 'Atividade Acadêmica',
-      uri: 'http://www.semanticweb.org/ontologias/ONTAE/ONTAE_00000000',
+      label: 'documento',
+      uri: 'http://www.semanticweb.org/ontologias/OntoSesai/sesai_00000317',
       subclasses: [],
       loading: false,
       selectedSubclass: null,
@@ -136,59 +136,62 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <main className="container mt-4">
+        <div className="card card-custom">
+          <div className="card-body">
+            <h2 className="form-title">
+              {language === 'pt' ? 'Formulário Dinâmico de Cadastro' : 'Dynamic Registration Form'}
+            </h2>
 
-      <div className="container mt-4">
-      <h2 className="mb-4">{language === 'pt' ? 'Formulário Dinâmico de Cadastro' : 'Dynamic Registration Form'}</h2>
-        {error && (
-          <div className="alert alert-danger" role="alert">
-            {error}
-          </div>
-        )}
+            {error && (
+              <div className="alert alert-danger" role="alert">
+                {error}
+              </div>
+            )}
 
-        {/* Botão para alterar o idioma */}
-        <div className="mb-4">
-          <button className="btn btn-secondary" onClick={() => changeLanguage(language === 'pt' ? 'en' : 'pt')}>
-            {language === 'pt' ? 'Switch to English' : 'Mudar para Português'}
-          </button>
-        </div>
-
-        <div className="mb-4">
-          {classHierarchy.map((level, index) => (
-            <div key={index} className="form-group">
-              <label>
-                {index === 0
-                  ? language === 'pt' ? 'Selecione uma Atividade Acadêmica' : 'Select an Academic Activity'
-                  : language === 'pt' ? `Selecione um(a) ${previousActivityLabel}` : `Select a(n) ${previousActivityLabel}`}
-              </label>
-              {level.loading ? (
-                <div>{language === 'pt' ? 'Carregando...' : 'Loading...'}</div>
-              ) : (
-                <select
-                  className="form-control"
-                  value={level.selectedSubclass || ''}
-                  onChange={(e) => handleSubclassSelect(e.target.value, index)}
-                >
-                  <option value="">{language === 'pt' ? 'Selecione' : 'Select'}</option>
-                  {level.subclasses.map((subclass) => (
-                    <option key={subclass.uri} value={subclass.uri}>
-                      {subclass.label}
-                    </option>
-                  ))}
-                </select>
-              )}
+            <div className="mb-4 d-flex justify-content-end">
+              <button className="btn btn-secondary" onClick={() => changeLanguage(language === 'pt' ? 'en' : 'pt')}>
+                {language === 'pt' ? 'Switch to English' : 'Mudar para Português'}
+              </button>
             </div>
-          ))}
+
+            <div className="mb-4">
+              {classHierarchy.map((level, index) => (
+                <div key={index} className="form-group mb-3">
+                  <label>
+                    {index === 0
+                      ? language === 'pt' ? 'Selecione um tipo de documento' : 'Select a type of document'
+                      : language === 'pt' ? `Selecione um(a) ${previousActivityLabel}` : `Select a(n) ${previousActivityLabel}`}
+                  </label>
+                  {level.loading ? (
+                    <div>{language === 'pt' ? 'Carregando...' : 'Loading...'}</div>
+                  ) : (
+                    <select
+                      className="form-control"
+                      value={level.selectedSubclass || ''}
+                      onChange={(e) => handleSubclassSelect(e.target.value, index)}
+                    >
+                      <option value="">{language === 'pt' ? 'Selecione' : 'Select'}</option>
+                      {level.subclasses.map((subclass) => (
+                        <option key={subclass.uri} value={subclass.uri}>
+                          {subclass.label}
+                        </option>
+                      ))}
+                    </select>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {formLoading && <div>{language === 'pt' ? 'Carregando formulário...' : 'Loading form...'}</div>}
+            {formData && !formLoading && (
+              language === 'pt'
+                ? <DynamicForm formData={formData} />
+                : <DynamicFormEn formData={formData} />
+            )}
+          </div>
         </div>
-
-        {formLoading && <div>{language === 'pt' ? 'Carregando formulário...' : 'Loading form...'}</div>}
-
-        {formData && !formLoading && (
-          language === 'pt'
-            ? <DynamicForm formData={formData} />
-            : <DynamicFormEn formData={formData} />
-        )}
-      </div>
-
+      </main>
       <Footer />
     </div>
   );

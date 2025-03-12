@@ -131,7 +131,7 @@ def list_restrictions_and_data_properties(g, class_uri, labels, labels_to_uris):
     restrictions = []
 
     def get_restrictions_recursive(uri):
-        if str(uri) == 'http://www.semanticweb.org/ontologias/ONTAE/ONTAE_00000000':
+        if str(uri) == 'hhttp://www.semanticweb.org/ontologias/OntoSesai/sesai_00000317':
             return
 
         for _, p, o in g.triples((URIRef(uri), RDFS.subClassOf, None)):

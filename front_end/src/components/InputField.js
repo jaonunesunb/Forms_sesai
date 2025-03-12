@@ -14,9 +14,9 @@ const InputField = ({ field, value, handleChange, errors, isRequired }) => {
   const maxLength = restrictions?.['xsd:maxLength'] ? parseInt(restrictions['xsd:maxLength']) : undefined;
 
   return (
-    <div className="form-group">
+    <div className="form-group mb-3">
       <label htmlFor={key}>
-        {capitalize(label)} ({capitalize(relatedClass)}) 
+        {capitalize(label)} ({capitalize(relatedClass)})
         {isRequired ? <span className="text-danger"> *</span> : <span className="text-muted"> (Opcional)</span>}
       </label>
 

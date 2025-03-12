@@ -21,7 +21,7 @@ const DynamicForm = ({ formData }) => {
       switch (dataType[0]) {
         case 'http://www.w3.org/2001/XMLSchema#date':
           if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) {
-            error = 'Data inválida. Use o formato AAAA-MM-DD.';
+            error = 'Data inválida. Use o formato DD-MM-AAAA.';
           }
           break;
         case 'http://www.w3.org/2001/XMLSchema#time':

@@ -3,7 +3,7 @@ import React from 'react';
 const Header = () => {
   return (
     <header className="bg-primary text-white p-3 text-center">
-      <h1>Palestrinha</h1>
+      <h1>Sesai Forms</h1>
     </header>
   );
 };

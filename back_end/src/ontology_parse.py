@@ -195,8 +195,8 @@ def list_subclasses(g, class_uri, labels):
     return [labels.get(subclass, subclass) for subclass in subclasses]
 
 def main():
-    ontology_file = 'back_end/src/OWL/ONTAE.owl'
-    class_uri = 'http://www.semanticweb.org/ontologias/ONTAE/ONTAE_00000019'  # Palestra
+    ontology_file = 'back_end/src/OWL/docs_sesai.owl'
+    class_uri = 'http://www.semanticweb.org/ontologias/OntoSesai/sesai_00000317'  # Palestra
 
     g = load_ontology(ontology_file)
     
