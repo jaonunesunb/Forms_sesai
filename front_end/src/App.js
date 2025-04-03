@@ -136,7 +136,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <main className="container mt-4">
+      <main id="pdfContent" className="container mt-4">
         <div className="card card-custom">
           <div className="card-body">
             <h2 className="form-title">
@@ -150,7 +150,7 @@ function App() {
             )}
 
             <div className="mb-4 d-flex justify-content-end">
-              <button className="btn btn-secondary" onClick={() => changeLanguage(language === 'pt' ? 'en' : 'pt')}>
+              <button data-html2canvas-ignore className="btn btn-secondary" onClick={() => changeLanguage(language === 'pt' ? 'en' : 'pt')}>
                 {language === 'pt' ? 'Switch to English' : 'Mudar para Português'}
               </button>
             </div>

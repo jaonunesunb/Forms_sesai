@@ -1,10 +1,10 @@
 {
-    "área de conhecimento-http://purl.obolibrary.org/obo/IAO_0000235": "Ciência da informação",
-    "título da atividade acadêmica-http://purl.obolibrary.org/obo/IAO_0000235": " Tópicos avançados em Ontologias",
-    "descrição da atividade acadêmica-http://purl.obolibrary.org/obo/IAO_0000235": "sla ",
-    "espaço acadêmico-http://purl.obolibrary.org/obo/RO_0001025": "http://www.semanticweb.org/ontologias/ONTAE/ONTAE_00000013",
-    "data da atividade acadêmica-http://purl.obolibrary.org/obo/BFO_0000066": "2025-10-10",
-    "horário de inicio da atividade acadêmica-http://purl.obolibrary.org/obo/BFO_0000066": "10:00",
-    "horário de fim da atividade acadêmica-http://purl.obolibrary.org/obo/BFO_0000066": "12:00",
-    "http://www.semanticweb.org/ontologias/ONTAE/ONTAE_00000013-auditório": "Auditório da FCI"
+    "data de início de vigência da contratação-http://purl.obolibrary.org/obo/BFO_0000066": "2000-02-01",
+    "data de final de vigência da contratação-http://purl.obolibrary.org/obo/BFO_0000066": "2000-03-03",
+    "obra de engenharia-http://purl.obolibrary.org/obo/IAO_0000136": "http://www.semanticweb.org/ontologias/OntoSesai/sesai_00000402",
+    "tipo de obra ou serviço-http://www.semanticweb.org/ontologias/OntoSesai/sesai_00000394": "http://www.semanticweb.org/ontologias/OntoSesai/sesai_00000385",
+    "obrigações do contratante-http://www.semanticweb.org/ontologias/OntoSesai/sesai_00000394": "dfsefsef",
+    "obrigações do contratado-http://www.semanticweb.org/ontologias/OntoSesai/sesai_00000394": "efefsef",
+    "http://www.semanticweb.org/ontologias/OntoSesai/sesai_00000402-demolição": "sefsef",
+    "http://www.semanticweb.org/ontologias/OntoSesai/sesai_00000385-obra de engenharia": "fsefsef"
 }

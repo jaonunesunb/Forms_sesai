@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import SelectField from './SelectField'; // Importa o componente SelectField
-import InputField from './InputField';   // Importa o novo componente InputField
+import html2canvas from 'html2canvas'
+import { jsPDF } from 'jspdf';
+import SelectField from './SelectField';
+import InputField from './InputField'; 
 
 // Função para capitalizar a primeira letra
 const capitalize = (text) => {
@@ -12,6 +14,7 @@ const DynamicForm = ({ formData }) => {
   const [formState, setFormState] = useState({});
   const [errors, setErrors] = useState({});
   const [dynamicFields, setDynamicFields] = useState([]);
+  const [submittedData, setSubmittedData] = useState(null);
 
   // Função de validação de tipos de dados
   const validateDataType = (value, dataType, restrictions) => {
@@ -57,6 +60,33 @@ const DynamicForm = ({ formData }) => {
   
     return error;
   };
+
+ async function handleGeneratePdf() {
+    const html2pdf = await require('html2pdf.js')
+    const element = document.getElementById('pdfContent');
+  
+    const options = {
+      margin: [0, 0, 0, 0],
+      filename: 'formulario.pdf',
+      html2canvas: { 
+        scale: 2, 
+        useCORS: true, 
+        logging: true, 
+        scrollY: 0, 
+        scrollX: 0, 
+        windowWidth: document.documentElement.offsetWidth, 
+        windowHeight: document.documentElement.scrollHeight 
+      },
+      jsPDF: { 
+        unit: 'px', 
+        format: [document.documentElement.offsetWidth, document.documentElement.scrollHeight], 
+        orientation: 'portrait' 
+      },
+      pagebreak: { mode: ['avoid-all'] }
+    };
+  
+    html2pdf().set(options).from(element).save();
+  };   
 
   // Função de validação de campos
   const validateField = (value, field) => {
@@ -133,11 +163,9 @@ const DynamicForm = ({ formData }) => {
       if (dataTypeError) {
         newErrors[key] = dataTypeError;
       } else if (value) {
-        // Inclui o campo no estado válido se tiver valor e o valor for válido
         validFormState[key] = value;
       }
   
-      // Adiciona erro se o campo obrigatório estiver vazio
       if (isRequired && !value) {
         newErrors[key] = 'Este campo é obrigatório.';
       }
@@ -147,17 +175,15 @@ const DynamicForm = ({ formData }) => {
     dynamicFields.forEach((field) => {
       const key = generateKey(field);
       const value = formState[key];
-
-      // Validação do tipo de dado
+  
       const dataTypeError = validateDataType(value, field.dataType, field.restrictions);
       if (dataTypeError) {
         newErrors[key] = dataTypeError;
       } else if (value) {
-        // Inclui o campo no estado válido se tiver valor e o valor for válido
         validFormState[key] = value;
       }
     });
-
+  
     setErrors(newErrors);
   
     if (Object.keys(newErrors).length === 0) {
@@ -167,12 +193,13 @@ const DynamicForm = ({ formData }) => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(validFormState), // Envia todos os dados válidos
+          body: JSON.stringify(validFormState),
         });
   
         if (response.ok) {
           console.log('Formulário enviado com sucesso!');
           downloadJSON(validFormState, 'form_data.json');
+          setSubmittedData(validFormState);
         } else {
           console.error('Erro ao enviar o formulário');
         }
@@ -182,7 +209,7 @@ const DynamicForm = ({ formData }) => {
     } else {
       console.log('Erros no formulário:', newErrors);
     }
-  };
+  };  
 
   const generateKey = (field) => {
     return `${field.relatedClass}-${field.property}`;
@@ -231,12 +258,23 @@ const DynamicForm = ({ formData }) => {
   };
 
   return (
-    <form className="form-container" onSubmit={handleSubmit}>
-      {renderFields()}
-      {dynamicFields.length > 0 && dynamicFields.map((field, index) => renderField(field, index))}
-      <button type="submit" className="btn btn-primary mt-4">Enviar</button>
-    </form>
-  );
+    <>
+      <div id="pdfContent">
+        <form className="form-container" onSubmit={handleSubmit}>
+          {renderFields()}
+          {dynamicFields.length > 0 && dynamicFields.map((field, index) => renderField(field, index))}
+          <button data-html2canvas-ignore type="submit" className="btn btn-primary mt-4">Enviar</button>
+        </form>
+      </div>
+      {submittedData && (
+        <div className="mt-4">
+          <button data-html2canvas-ignore className="btn btn-secondary" onClick={handleGeneratePdf}>
+            Imprimir PDF
+          </button>
+        </div>
+      )}
+    </>
+  );   
 };
 
 const downloadJSON = (data, filename) => {

@@ -102,3 +102,5 @@ footer {
     margin: 20px;
   }
 }
+
+@layer base { img { display: initial; } }
