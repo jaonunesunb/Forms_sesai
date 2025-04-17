@@ -15,3 +15,10 @@ __pycache__/
 *.log
 
 node_modules
+
+# Diretório para uso pessoal
+_apoio
+
+# Diretórios do backend para testes internos
+back_end/src/_tests
+back_end/src/files
