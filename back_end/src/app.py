@@ -45,10 +45,15 @@ def get_subclasses():
 
     # Carrega a ontologia e extrai as subclasses
     g = op.load_ontology('back_end/src/OWL/docs_sesai.owl')
-    labels, _ = op.extract_labels(g, current_language)
+    labels, labels_to_uris, descriptions = op.extract_labels(g, current_language)
     subclasses = pr.list_subclasses(g, class_uri, labels)
 
-    # Retorna subclasses como um JSON com uri e label
+    # Adicionar a descrição ao JSON de subclasses
+    for subclass in subclasses:
+        related_class_uri = subclass.get("uri")
+        if related_class_uri in descriptions:
+            subclass["definition"] = descriptions[related_class_uri]  # Adiciona a definição (se disponível)
+
     return jsonify({"subclasses": subclasses})
 
 # Função para buscar os detalhes de uma classe
@@ -60,11 +65,11 @@ def get_class_details():
 
     # Carrega a ontologia e extrai os detalhes da classe
     g = op.load_ontology('back_end/src/OWL/docs_sesai.owl')
-    labels, labels_to_uris = op.extract_labels(g, current_language)
-    details = op.list_restrictions_and_data_properties(g, class_uri, labels, labels_to_uris)
-
+    labels, labels_to_uris, descriptions = op.extract_labels(g, current_language)
+    details = op.list_restrictions_and_data_properties(g, class_uri, labels, labels_to_uris, descriptions)
     response = json.dumps(details, ensure_ascii=False)
     return Response(response, content_type='application/json; charset=utf-8')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
