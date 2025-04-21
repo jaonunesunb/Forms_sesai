@@ -13,6 +13,7 @@ def load_ontology(file_path):
 def extract_labels(g, language='pt'):
     labels = {}
     labels_to_uris = {}
+    descriptions = {}
     
     # Função que retorna o label no idioma definido
     def get_label(entity):
@@ -26,13 +27,23 @@ def extract_labels(g, language='pt'):
             return str(label)
         
         return None
+    # Função para pegar definição (annotation obo:IAO_0000115 ou rdfs:comment)
+    def get_definition(entity):
+        for defn in g.objects(entity, URIRef("http://purl.obolibrary.org/obo/IAO_0000115")):
+            return str(defn)
+        for comment in g.objects(entity, RDFS.comment):
+            return str(comment)
+        return None
 
     # Iterar sobre classes, propriedades de objeto e propriedades de dados para extrair labels
     for entity in g.subjects(RDF.type, OWL.Class):
         label = get_label(entity)
+        definition = get_definition(entity)
         if label:
             labels[entity] = label
             labels_to_uris[label] = entity
+            if definition:
+                descriptions[str(entity)] = definition
 
     for entity in g.subjects(RDF.type, OWL.ObjectProperty):
         label = get_label(entity)
@@ -46,7 +57,7 @@ def extract_labels(g, language='pt'):
             labels[entity] = label
             labels_to_uris[label] = entity
     
-    return labels, labels_to_uris
+    return labels, labels_to_uris, descriptions
 
 # Processar coleções RDF (intersectionOf, unionOf)
 def process_collection(g, collection):
@@ -127,7 +138,7 @@ def process_restriction(g, restriction, labels):
     return (on_property, on_class_labels, cardinality_str)
 
 # Atualizar a lógica para lidar com datas e horas corretamente
-def list_restrictions_and_data_properties(g, class_uri, labels, labels_to_uris):
+def list_restrictions_and_data_properties(g, class_uri, labels, labels_to_uris, descriptions):
     restrictions = []
 
     def get_restrictions_recursive(uri):
@@ -178,6 +189,7 @@ def list_restrictions_and_data_properties(g, class_uri, labels, labels_to_uris):
                             "property": str(property_uri),
                             "label": labels.get(property_uri, property_uri),
                             "relatedClass": related_class_str,
+                            "relatedClassUri": str(related_class),
                             "subclasses": subclasses,
                             "cardinality": cardinality
                         })
@@ -191,6 +203,7 @@ def list_restrictions_and_data_properties(g, class_uri, labels, labels_to_uris):
                                     "dataType": prop_restrictions.get('type', ['http://www.w3.org/2001/XMLSchema#string']),
                                     "restrictions": prop_restrictions,
                                     "relatedClass": related_class_str,
+                                    "relatedClassUri": str(related_class),
                                     "cardinality": cardinality
                                 })
                         else:
@@ -198,10 +211,14 @@ def list_restrictions_and_data_properties(g, class_uri, labels, labels_to_uris):
                                 "property": str(property_uri),
                                 "label": labels.get(property_uri, property_uri),
                                 "relatedClass": related_class_str,
+                                "relatedClassUri": str(related_class),
                                 "cardinality": cardinality,
                                 "status": "em construção"
                             })
-
+    for detail in data_fields:
+        uri = detail.get("relatedClassUri", detail["relatedClass"])
+        if uri in descriptions:
+            detail["description"] = descriptions[uri]
     return data_fields
 
 # Função para listar subclasses e suas respectivas data properties associadas
