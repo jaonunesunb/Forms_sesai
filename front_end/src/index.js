@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import Home from './templates/Home';
 import GovBr from './templates/GovBr';
 //import App from './components/App';
 import reportWebVitals from './reportWebVitals';

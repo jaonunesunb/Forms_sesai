@@ -1,9 +1,8 @@
+import './styles.css';
+
 import React, { useEffect, useState } from 'react';
 import DynamicForm from '../DynamicForm'; // Formulário em português
-import DynamicFormEn from '../DynamicFormEn'; // Formulário em inglês
-import Header from '../Header';
-import Footer from '../Footer';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import DynamicFormEn from '../DynamicFormEn'; // Formulário em inglês
 
 //function App() {
 export const App = () => {
@@ -137,7 +136,6 @@ export const App = () => {
 
   return (
     <div className="App">
-      <Header />
       <main className="container mt-4">
         <div className="card card-custom">
           <div className="card-body">
@@ -159,7 +157,7 @@ export const App = () => {
 
             <div className="mb-4">
               {classHierarchy.map((level, index) => (
-                <div key={index} className="form-group mb-3">
+                <div key={index} className="br-input mb-3">
                   <label>
                     {index === 0
                       ? language === 'pt' ? 'Selecione um tipo de documento' : 'Select a type of document'
@@ -169,7 +167,6 @@ export const App = () => {
                     <div>{language === 'pt' ? 'Carregando...' : 'Loading...'}</div>
                   ) : (
                     <select
-                      className="form-control"
                       value={level.selectedSubclass || ''}
                       onChange={(e) => handleSubclassSelect(e.target.value, index)}
                     >
@@ -185,16 +182,15 @@ export const App = () => {
               ))}
             </div>
 
-            {formLoading && <div>{language === 'pt' ? 'Carregando formulário...' : 'Loading form...'}</div>}
+            {formLoading && <div className="br-card"><div class="card-content">{language === 'pt' ? 'Carregando formulário...' : 'Loading form...'}</div></div>}
             {formData && !formLoading && (
               language === 'pt'
                 ? <DynamicForm formData={formData} />
-                : <DynamicFormEn formData={formData} />
+                : <DynamicForm formData={formData} />
             )}
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }

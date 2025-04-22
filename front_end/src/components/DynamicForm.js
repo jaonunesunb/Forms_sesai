@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import SelectField from './SelectField'; // Importa o componente SelectField
 import InputField from './InputField';   // Importa o novo componente InputField
 
@@ -16,7 +15,7 @@ const DynamicForm = ({ formData }) => {
   // Função de validação de tipos de dados
   const validateDataType = (value, dataType, restrictions) => {
     let error = '';
-  
+
     if (value && dataType && dataType.length > 0) {
       switch (dataType[0]) {
         case 'http://www.w3.org/2001/XMLSchema#date':
@@ -48,13 +47,13 @@ const DynamicForm = ({ formData }) => {
         default:
           break;
       }
-  
+
       const maxLength = restrictions?.['xsd:maxLength'];
       if (maxLength && value.length > parseInt(maxLength)) {
         error = `O texto excede o comprimento máximo de ${maxLength} caracteres.`;
       }
     }
-  
+
     return error;
   };
 
@@ -81,7 +80,7 @@ const DynamicForm = ({ formData }) => {
       ...prevState,
       [key]: value, // Atualiza corretamente o valor para a chave (campo)
     }));
-  
+
     const error = validateField(value, field);
     setErrors((prevErrors) => ({
       ...prevErrors,
@@ -112,22 +111,22 @@ const DynamicForm = ({ formData }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     const newErrors = {};
     const validFormState = {}; // Novo objeto para armazenar os dados válidos
-  
+
     formData.forEach((field) => {
       const key = generateKey(field);
       const value = formState[key];
-  
+
       // Pular campos com status "em construção"
       if (field.status === 'em construção') {
         return;
       }
-  
+
       // Verifica se o campo é obrigatório
       const isRequired = field.cardinality && ['min 1', 'only', 'exactly 1', "some"].includes(field.cardinality);
-      
+
       // Validação do tipo de dado
       const dataTypeError = validateDataType(value, field.dataType, field.restrictions);
       if (dataTypeError) {
@@ -136,13 +135,13 @@ const DynamicForm = ({ formData }) => {
         // Inclui o campo no estado válido se tiver valor e o valor for válido
         validFormState[key] = value;
       }
-  
+
       // Adiciona erro se o campo obrigatório estiver vazio
       if (isRequired && !value) {
         newErrors[key] = 'Este campo é obrigatório.';
       }
     });
-  
+
     // Incluindo campos opcionais dinâmicos que foram adicionados
     dynamicFields.forEach((field) => {
       const key = generateKey(field);
@@ -159,7 +158,7 @@ const DynamicForm = ({ formData }) => {
     });
 
     setErrors(newErrors);
-  
+
     if (Object.keys(newErrors).length === 0) {
       try {
         const response = await fetch('http://127.0.0.1:5000/save_form_data', {
@@ -169,7 +168,7 @@ const DynamicForm = ({ formData }) => {
           },
           body: JSON.stringify(validFormState), // Envia todos os dados válidos
         });
-  
+
         if (response.ok) {
           console.log('Formulário enviado com sucesso!');
           downloadJSON(validFormState, 'form_data.json');
@@ -234,7 +233,7 @@ const DynamicForm = ({ formData }) => {
     <form className="form-container" onSubmit={handleSubmit}>
       {renderFields()}
       {dynamicFields.length > 0 && dynamicFields.map((field, index) => renderField(field, index))}
-      <button type="submit" className="btn btn-primary mt-4">Enviar</button>
+      <button type="submit" className="br-button secondary mt-3">Enviar</button>
     </form>
   );
 };

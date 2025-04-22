@@ -1,10 +1,17 @@
 import './styles.css';
 
+import '@govbr-ds/core/dist/core.min.css';
+
+import '@govbr-ds/core/dist/core-init.min.js';
+
+
 import React, { useEffect, useState } from 'react';
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 import { BrHeader, BrFooter, BrMenu, BrBreadcrumbs, BrInput, BrButton } from "@govbr-ds/react-components";
+
+import { App } from '../../components/App';
 
 import { Component } from 'react';
 
@@ -24,7 +31,8 @@ class GovBr extends Component {
 		footerLinks: [],
 		atalhosRapidos: [],
 		redesSociais: [],
-		documents: []
+		documents: [],
+		breadcrumbItems: []
 	}
 
 	/*
@@ -131,8 +139,6 @@ class GovBr extends Component {
 		);
 	}
 
-
-
 	handleChange = (e) => {
 		const {value} = e.target;
 		this.setState({ searchTerm: value });
@@ -206,6 +212,8 @@ class GovBr extends Component {
 						))}
 					</ul>
 				</div>
+
+				<App />
 
 				<BrFooter urlLogo="/img/govbr-negativa.png" links={footerLinks} socialNetworks={redesSociais} />
 

@@ -5,8 +5,8 @@ const SelectField = ({ field, value, handleChange, errors, isRequired }) => {
   const key = `${relatedClass}-${field.property}`;
 
   return (
-    <div className="form-group">
-      <label>{capitalize(label)}</label> 
+    <div className="br-input  mb-3">
+      <label>{capitalize(label)}</label>
       <select
         id={key}
         className={`form-control ${errors[key] ? 'is-invalid' : ''}`}

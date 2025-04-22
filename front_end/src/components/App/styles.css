@@ -1,30 +1,4 @@
-/* Estilos Globais */
-body {
-  font-family: 'Roboto', sans-serif;
-  background-color: #f0f2f5;
-  margin: 0;
-  padding: 0;
-  color: #333;
-}
-
-/* Header */
-header {
-  background-color: #007bff;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-/* Footer */
-footer {
-  background-color: #343a40;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-  margin-top: 40px;
-}
-
+@charset "UTF-8";
 /* Container do Formulário */
 .form-container {
   background: #fff;
@@ -32,14 +6,13 @@ footer {
   padding: 30px;
   max-width: 600px;
   border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Grupo de Campos */
 .form-group {
   margin-bottom: 20px;
 }
-
 .form-group label {
   font-weight: 600;
   margin-bottom: 8px;
@@ -47,9 +20,9 @@ footer {
 }
 
 /* Inputs, Selects e Textareas */
-.form-group input,
-.form-group select,
-.form-group textarea {
+.br-input input,
+.br-input select,
+.br-input textarea {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -80,25 +53,4 @@ footer {
   margin-top: 5px;
 }
 
-/* Botões */
-.btn {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-  background-color: #0056b3;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .form-container {
-    padding: 20px;
-    margin: 20px;
-  }
-}
+/*# sourceMappingURL=styles.css.map */
