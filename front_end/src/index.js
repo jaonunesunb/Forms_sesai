@@ -2,14 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import Home from './templates/Home';
-import Gov from './templates/Gov';
+import GovBr from './templates/GovBr';
 //import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Gov />
+    <GovBr />
   </React.StrictMode>
 );
 

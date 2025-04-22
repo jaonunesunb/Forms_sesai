@@ -50,6 +50,7 @@
   line-height: 1.25;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
   font-size: 1rem;
+  text-transform: capitalize;
 }
 
 .search-container {
