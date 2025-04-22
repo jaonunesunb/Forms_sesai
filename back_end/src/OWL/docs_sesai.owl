@@ -3244,6 +3244,7 @@ This issue is outside the scope of OBI.</obo:IAO_0000116>
 
     <owl:Class rdf:about="http://www.semanticweb.org/ontologias/OntoSesai/sesai_00000322">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologias/OntoSesai/sesai_00000317"/>
+        <obo:IAO_0000115 xml:lang="pt-br">aeecaecsecescec</obo:IAO_0000115>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-25T16:39:07Z</dc:date>
         <rdfs:label xml:lang="pt">projeto</rdfs:label>
@@ -3795,6 +3796,7 @@ This issue is outside the scope of OBI.</obo:IAO_0000116>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/OntoSesai/sesai_00000435"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <obo:IAO_0000115>ecssevksrvsrkvnsrkv</obo:IAO_0000115>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-28T15:08:49Z</dc:date>
         <rdfs:label xml:lang="pt">projeto básico</rdfs:label>
@@ -3817,6 +3819,7 @@ This issue is outside the scope of OBI.</obo:IAO_0000116>
 
     <owl:Class rdf:about="http://www.semanticweb.org/ontologias/OntoSesai/sesai_00000385">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologias/OntoSesai/sesai_00000395"/>
+        <obo:IAO_0000115 xml:lang="pt-br">Teste teste teste</obo:IAO_0000115>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-28T15:09:58Z</dc:date>
         <rdfs:label xml:lang="pt">obra de engenharia</rdfs:label>
@@ -4038,6 +4041,7 @@ This issue is outside the scope of OBI.</obo:IAO_0000116>
 
     <owl:Class rdf:about="http://www.semanticweb.org/ontologias/OntoSesai/sesai_00000425">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000300"/>
+        <obo:IAO_0000115>cjsciesjceicjescjCIJecjeCJEcw</obo:IAO_0000115>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-03-05T23:18:26Z</dc:date>
         <rdfs:label xml:lang="pt">data de início de vigência da contratação</rdfs:label>
@@ -4093,6 +4097,7 @@ This issue is outside the scope of OBI.</obo:IAO_0000116>
 
     <owl:Class rdf:about="http://www.semanticweb.org/ontologias/OntoSesai/sesai_00000431">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000300"/>
+        <obo:IAO_0000115>siopicjzpcj\c\[0acuaw0</obo:IAO_0000115>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-03-06T17:38:38Z</dc:date>
         <rdfs:label xml:lang="pt">obrigações do contratante</rdfs:label>
@@ -4104,6 +4109,7 @@ This issue is outside the scope of OBI.</obo:IAO_0000116>
 
     <owl:Class rdf:about="http://www.semanticweb.org/ontologias/OntoSesai/sesai_00000432">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000300"/>
+        <obo:IAO_0000115 xml:lang="pt-br">Definição teste.</obo:IAO_0000115>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-03-06T17:39:46Z</dc:date>
         <rdfs:label xml:lang="pt">obrigações do contratado</rdfs:label>
