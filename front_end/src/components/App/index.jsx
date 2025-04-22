@@ -4,8 +4,8 @@ import React, { useEffect, useState } from 'react';
 import DynamicForm from '../DynamicForm'; // Formulário em português
 // import DynamicFormEn from '../DynamicFormEn'; // Formulário em inglês
 
-//function App() {
-export const App = () => {
+
+export const App = ({ selectedDocumentUri }) => {
 
   const [classHierarchy, setClassHierarchy] = useState([
     {
@@ -134,6 +134,15 @@ export const App = () => {
     fetchLanguage(); // Busca o idioma ao iniciar o aplicativo
   }, []);
 
+   useEffect(() => {
+       if (!selectedDocumentUri) return;
+    
+       const root = classHierarchy[0];
+       if (root && root.subclasses && root.subclasses.length > 0) {
+         handleSubclassSelect(selectedDocumentUri, 0);
+       }
+     }, [selectedDocumentUri, classHierarchy[0]?.subclasses.length]);
+
   return (
     <div className="App">
       <main className="container mt-4">
@@ -149,11 +158,11 @@ export const App = () => {
               </div>
             )}
 
-            <div className="mb-4 d-flex justify-content-end">
+        {/*<div className="mb-4 d-flex justify-content-end">
               <button className="btn btn-secondary" onClick={() => changeLanguage(language === 'pt' ? 'en' : 'pt')}>
                 {language === 'pt' ? 'Switch to English' : 'Mudar para Português'}
               </button>
-            </div>
+            </div> */}
 
             <div className="mb-4">
               {classHierarchy.map((level, index) => (

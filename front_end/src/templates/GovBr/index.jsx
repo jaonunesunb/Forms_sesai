@@ -32,7 +32,8 @@ class GovBr extends Component {
 		atalhosRapidos: [],
 		redesSociais: [],
 		documents: [],
-		breadcrumbItems: []
+		breadcrumbItems: [],
+		selectedDocument: null,
 	}
 
 	/*
@@ -207,13 +208,18 @@ class GovBr extends Component {
 					<ul className="document-list">
 						{documents.map(document => (
 							<li key={document.uri}>
-								<a href="#">{document.label}</a>
+								<a href="#"
+								onClick={e => {
+									e.preventDefault();
+									this.setState({ selectedDocument: document.uri });
+								}}>
+								{document.label}</a>
 							</li>
 						))}
 					</ul>
 				</div>
 
-				<App />
+				<App selectedDocumentUri={this.state.selectedDocument} />
 
 				<BrFooter urlLogo="/img/govbr-negativa.png" links={footerLinks} socialNetworks={redesSociais} />
 
