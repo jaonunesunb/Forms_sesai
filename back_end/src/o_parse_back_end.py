@@ -1,3 +1,4 @@
+from flask import json
 from rdflib import BNode, Graph, URIRef, RDFS, OWL, RDF
 
 # Variável global de idioma (inicializando como 'pt' para Português)
@@ -15,6 +16,14 @@ def load_ontology(file_path):
 # Identificar classes que devem renderizar como select
 def get_selectable_classes(g):
     return set(g.objects(SELECT_DP_URI, RDFS.domain))
+# No topo do arquivo (logo após os imports)
+def get_label(g, entity, language='pt'):
+    for label in g.objects(entity, RDFS.label):
+        if label.language and label.language.startswith(language):
+            return str(label)
+    for label in g.objects(entity, RDFS.label):
+        return str(label)
+    return str(entity)
 
 # Extrair labels de classes e propriedades com preferência para o idioma definido
 def extract_labels(g, language='pt'):
@@ -22,18 +31,6 @@ def extract_labels(g, language='pt'):
     labels_to_uris = {}
     descriptions = {}
     
-    # Função que retorna o label no idioma definido
-    def get_label(entity):
-        # Tentar buscar primeiro o label no idioma selecionado
-        for label in g.objects(entity, RDFS.label):
-            if label.language and label.language.startswith(language):
-                return str(label)
-        
-        # Se não houver label no idioma selecionado, pegar qualquer label disponível
-        for label in g.objects(entity, RDFS.label):
-            return str(label)
-        
-        return None
     # Função para pegar definição (annotation obo:IAO_0000115 ou rdfs:comment)
     def get_definition(entity):
         for defn in g.objects(entity, URIRef("http://purl.obolibrary.org/obo/IAO_0000115")):
@@ -44,7 +41,7 @@ def extract_labels(g, language='pt'):
 
     # Iterar sobre classes, propriedades de objeto e propriedades de dados para extrair labels
     for entity in g.subjects(RDF.type, OWL.Class):
-        label = get_label(entity)
+        label = get_label(g, entity, language)
         definition = get_definition(entity)
         if label:
             labels[entity] = label
@@ -53,13 +50,13 @@ def extract_labels(g, language='pt'):
                 descriptions[str(entity)] = definition
 
     for entity in g.subjects(RDF.type, OWL.ObjectProperty):
-        label = get_label(entity)
+        label = get_label(g, entity, language)
         if label:
             labels[entity] = label
             labels_to_uris[label] = entity
 
     for entity in g.subjects(RDF.type, OWL.DatatypeProperty):
-        label = get_label(entity)
+        label = get_label(g, entity, language)
         if label:
             labels[entity] = label
             labels_to_uris[label] = entity
@@ -146,88 +143,97 @@ def process_restriction(g, restriction, labels):
 
 # Atualizar a lógica para lidar com datas e horas corretamente
 def list_restrictions_and_data_properties(g, class_uri, labels, labels_to_uris, descriptions):
-    # 1) Descobre quais classes usam "é select"
-    selectable = get_selectable_classes(g)
-
-    # 2) Extrai todas as restrições da classe
     restrictions = []
-    def recurse(uri):
-        for _, _, o in g.triples((URIRef(uri), RDFS.subClassOf, None)):
-            # continua descendo em todas as subclasses
-            if isinstance(o, URIRef):
-                recurse(o)
-            # detecta nós OWL de restrição
-            is_restr = (
-                isinstance(o, BNode) or
-                (o, OWL.onProperty, None) in g or
-                (o, OWL.intersectionOf, None) in g or
-                (o, OWL.unionOf, None) in g
-            )
-            if not is_restr:
-                continue
-            # intersectionOf
-            if (o, OWL.intersectionOf, None) in g:
-                for part in process_collection(g, g.value(o, OWL.intersectionOf)):
-                    restrictions.append(process_restriction(g, part, labels))
-            # unionOf
-            elif (o, OWL.unionOf, None) in g:
-                for part in process_collection(g, g.value(o, OWL.unionOf)):
-                    restrictions.append(process_restriction(g, part, labels))
-            # onProperty direto
-            else:
-                restrictions.append(process_restriction(g, o, labels))
-    recurse(class_uri)
+    selectable = get_selectable_classes(g)
+    selectable_instances_map = {
+        str(cls): [{"uri": str(ind), "label": get_label(g, ind, LANGUAGE)}
+                for ind in g.subjects(RDF.type, cls)]
+        for cls in selectable
+    }
+    
+    def get_restrictions_recursive(uri):
+        if str(uri) == 'http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000557':
+            return
 
-    # 3) Monta lista de campos
-    data_fields = []
-    for prop_uri, related_classes, cardinality in restrictions:
-        # extrai nome curto da propriedade
-        short_name = str(prop_uri).split('#')[-1] or str(prop_uri)
-        for related_class in related_classes:
-            if isinstance(related_class, str) and related_class in labels_to_uris:
-                related_class = labels_to_uris[related_class]
-            # select
-            if related_class in selectable:
-                options = []
-                for inst in g.subjects(RDF.type, related_class):
-                    lbl = g.value(inst, RDFS.label) or inst.split('#')[-1]
-                    options.append({"uri": str(inst), "label": str(lbl)})
-                data_fields.append({
-                    "name":         short_name,
-                    "property":     str(prop_uri),
-                    "label":        labels.get(prop_uri, short_name),
-                    "type":         "select",
-                    "options":      options,
-                    "cardinality":  cardinality,
-                    "relatedClass": labels.get(related_class, str(related_class)),
-                    "relatedClassUri": str(related_class)
-                })
-            # data property
-            else:
-                dtype = g.value(prop_uri, RDFS.range)
-                if dtype == URIRef("http://www.w3.org/2001/XMLSchema#boolean"):
-                    widget = "boolean"
-                elif dtype in (
-                    URIRef("http://www.w3.org/2001/XMLSchema#integer"),
-                    URIRef("http://www.w3.org/2001/XMLSchema#decimal")
-                ):
-                    widget = "number"
-                elif dtype == URIRef("http://www.w3.org/2001/XMLSchema#dateTime"):
-                    widget = "datetime"
+        for _, p, o in g.triples((URIRef(uri), RDFS.subClassOf, None)):
+            if isinstance(o, URIRef):
+                get_restrictions_recursive(o)
+            if isinstance(o, BNode) or isinstance(o, URIRef):
+                if (o, OWL.intersectionOf, None) in g:
+                    for item in process_collection(g, g.value(o, OWL.intersectionOf)):
+                        if (item, OWL.onProperty, None) in g:
+                            restrictions.append(process_restriction(g, item, labels))
                 else:
-                    widget = "text"
-                data_fields.append({
-                    "name":        short_name,
-                    "property":    str(prop_uri),
-                    "label":       labels.get(prop_uri, short_name),
-                    "type":        widget,
-                    "cardinality": cardinality
-                })
-    # 4) Anexa descrição se existir
+                    restrictions.append(process_restriction(g, o, labels))
+
+    get_restrictions_recursive(class_uri)
+
+    data_fields = []
+    for restriction in restrictions:
+        if len(restriction) == 3:
+            property_uri, related_classes, cardinality = restriction
+
+            for related_class in related_classes:
+                if isinstance(related_class, (list, tuple)):
+                    related_class_str = ' - '.join(
+                        [labels.get(cls, str(cls)) for cls in related_class]
+                    )
+                else:
+                    if isinstance(related_class, str) and related_class in labels_to_uris:
+                        related_class = labels_to_uris[related_class]
+                    related_class_str = labels.get(related_class, str(related_class))
+
+                # Tratar exatamente 1 para data e hora
+                if cardinality == "exactly 1":
+                    data_fields.append({
+                        "property": str(property_uri),
+                        "label": labels.get(property_uri, property_uri),
+                        "relatedClass": related_class_str,
+                        "dataType": ["http://www.w3.org/2001/XMLSchema#time"] if "horário" in related_class_str or "time" in related_class_str else ["http://www.w3.org/2001/XMLSchema#date"] if "data" in related_class_str or "date" in related_class_str else ["http://www.w3.org/2001/XMLSchema#string"],
+                        "cardinality": cardinality 
+                    })
+                else:
+                    subclasses = list_subclasses(g, related_class, labels)
+                    if subclasses:
+                        data_fields.append({
+                            "property": str(property_uri),
+                            "label": labels.get(property_uri, property_uri),
+                            "relatedClass": related_class_str,
+                            "relatedClassUri": str(related_class),
+                            "subclasses": subclasses,
+                            "cardinality": cardinality
+                        })
+                    else:
+                        data_props = find_data_properties_for_related_classes(g, related_class)
+                        if data_props:
+                            for prop_uri, prop_restrictions in data_props:
+                                data_fields.append({
+                                    "property": str(property_uri),
+                                    "label": labels.get(property_uri, property_uri),
+                                    "dataType": prop_restrictions.get('type', ['http://www.w3.org/2001/XMLSchema#string']),
+                                    "restrictions": prop_restrictions,
+                                    "relatedClass": related_class_str,
+                                    "relatedClassUri": str(related_class),
+                                    "cardinality": cardinality
+                                })
+                        else:
+                            data_fields.append({
+                                "property": str(property_uri),
+                                "label": labels.get(property_uri, property_uri),
+                                "relatedClass": related_class_str,
+                                "relatedClassUri": str(related_class),
+                                "cardinality": cardinality,
+                                "status": "em construção"
+                            })
     for detail in data_fields:
-        cls_uri = detail.get("relatedClassUri", detail.get("relatedClass"))
-        if cls_uri in descriptions:
-            detail["description"] = descriptions[cls_uri]
+        uri = detail.get("relatedClassUri", detail["relatedClass"])
+        if uri in descriptions:
+            detail["description"] = descriptions[uri]
+        
+        # Novo: Adiciona opções se a classe for "é select"
+        if uri in selectable_instances_map:
+            detail["options"] = selectable_instances_map[uri]
+
     return data_fields
 
 # Função para listar subclasses e suas respectivas data properties associadas
