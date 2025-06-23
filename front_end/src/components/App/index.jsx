@@ -9,8 +9,8 @@ export const App = ({ selectedDocumentUri }) => {
 
   const [classHierarchy, setClassHierarchy] = useState([
     {
-      label: 'documento',
-      uri: 'http://www.semanticweb.org/ontologias/OntoSesai/sesai_00000317',
+      label: 'formulário',
+      uri: 'http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000557',
       subclasses: [],
       loading: false,
       selectedSubclass: null,
