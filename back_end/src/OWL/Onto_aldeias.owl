@@ -2157,6 +2157,10 @@ Werner suggests a solution based on &quot;Magnitudes&quot; a proposal for which 
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000609">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000452"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000454"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000457"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000458"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000470"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-23T00:55:19Z</dc:date>
@@ -2169,14 +2173,10 @@ Werner suggests a solution based on &quot;Magnitudes&quot; a proposal for which 
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000610">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000452"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000453"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000454"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000455"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000457"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000458"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000470"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000456"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000462"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000505"/>
         <rdfs:range>
             <rdfs:Datatype>
@@ -2230,9 +2230,20 @@ Werner suggests a solution based on &quot;Magnitudes&quot; a proposal for which 
     <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000613 -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000613">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000461"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000463"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000465"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:maxLength>50</xsd:maxLength>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-23T01:06:20Z</dc:date>
         <rdfs:label xml:lang="pt">é select</rdfs:label>
@@ -3272,15 +3283,15 @@ Werner suggests a solution based on &quot;Magnitudes&quot; a proposal for which 
     </owl:Class>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/BFO_0000144"/>
-        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
-        <owl:annotatedTarget xml:lang="en">b is a process_profile =Def. there is some process c such that b process_profile_of c (axiom label in BFO2 Reference: [093-002])</owl:annotatedTarget>
-        <obo:IAO_0010000 rdf:resource="http://purl.obolibrary.org/obo/bfo/axiom/093-002"/>
-    </owl:Axiom>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/BFO_0000144"/>
         <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000600"/>
         <owl:annotatedTarget xml:lang="en">b process_profile_of c holds when b proper_occurrent_part_of c&amp; there is some proper_occurrent_part d of c which has no parts in common with b &amp; is mutually dependent on b&amp; is such that b, c and d occupy the same temporal region (axiom label in BFO2 Reference: [094-005])</owl:annotatedTarget>
         <obo:IAO_0010000 rdf:resource="http://purl.obolibrary.org/obo/bfo/axiom/094-005"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/BFO_0000144"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget xml:lang="en">b is a process_profile =Def. there is some process c such that b process_profile_of c (axiom label in BFO2 Reference: [093-002])</owl:annotatedTarget>
+        <obo:IAO_0010000 rdf:resource="http://purl.obolibrary.org/obo/bfo/axiom/093-002"/>
     </owl:Axiom>
     
 
@@ -4068,7 +4079,7 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000245"/>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-20T17:09:10Z</dc:date>
-        <rdfs:label xml:lang="pt">Distrito Sanitário Especial  Indígena (DSEI)</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Distrito Sanitário Especial Indígena (DSEI)</rdfs:label>
     </owl:Class>
     
 
@@ -4385,6 +4396,13 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000453"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000455"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -5655,6 +5673,380 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
         <dc:creator>Fernanda</dc:creator>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-08-15T02:37:38Z</dc:date>
         <rdfs:label xml:lang="pt">Faculdade de Ciência da Informação</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000000 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000000">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:00:28Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Alagoas e Sergipe</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000001 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000001">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:00:39Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Altamira</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000002 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000002">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:00:57Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Alto Rio Juruá</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000003 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000003">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:01:10Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Alto Rio Negro</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000004 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000004">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:01:27Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Alto Rio Purus</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000005 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000005">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:01:38Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Alto Rio Solimões</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000006 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000006">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:02:03Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Amapá e Norte do Pará</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000007 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000007">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:02:15Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Araguaia</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000008 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000008">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:02:22Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Bahia</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000009 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000009">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:02:30Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Ceará</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000010 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000010">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:02:36Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Cuiabá</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000011 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000011">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:02:55Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Guamá-Tocantins</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000012 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000012">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:03:10Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Interior Sul</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000013 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000013">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:03:34Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Kaiapó do Mato Grosso</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000014 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000014">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:03:43Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Kaiapó do Pará</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000015 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000015">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:03:53Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Leste de Roraima</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000016 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000016">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:04:02Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Litoral Sul</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000017 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000017">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:04:09Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Manaus</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000018 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000018">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:04:16Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Maranhão</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000019 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000019">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:04:31Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Mato Grosso do Sul</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000020 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000020">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:04:52Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Médio Rio Purus</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000021 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000021">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:05:10Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Médio Rio Solimões e Afluentes</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000022 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000022">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:05:28Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Minas Gerais e Espírito Santo</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000023 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000023">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:05:42Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Parintins</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000024 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000024">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:06:05Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Xingu</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000025 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000025">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:06:58Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Pernambuco</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000026 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000026">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:07:11Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Porto Velho</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000027 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000027">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:07:34Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Potiguara</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000028 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000028">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:07:46Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Rio Tapajós</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000029 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000029">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:07:53Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Tocantins</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000030 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000030">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:08:06Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Vale do Rio Javari</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000031 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000031">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:08:18Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Vilhena</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000032 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000032">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:08:27Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Xavante</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000033 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000033">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-24T15:08:41Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Yanomami</rdfs:label>
     </owl:NamedIndividual>
     
 

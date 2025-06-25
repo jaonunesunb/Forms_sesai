@@ -188,30 +188,48 @@ const DynamicForm = ({ formData }) => {
   };
 
   const renderField = (field, index) => {
-    const { label, dataType, restrictions, cardinality, relatedClass, status, subclasses } = field;
-    const key = generateKey(field);
+  const { label, dataType, restrictions, cardinality, relatedClass, status, subclasses, options } = field;
+  const key = generateKey(field);
 
-    if (status === 'em construção') {
-      return null;
-    }
+  if (status === 'em construção') return null;
 
-    const isRequired = cardinality && ['min 1', 'only', 'exactly 1', 'some'].includes(cardinality);
+  const isRequired = cardinality && ['min 1', 'only', 'exactly 1', 'some'].includes(cardinality);
+  const labelText = label || key;
 
-    if (subclasses && subclasses.length > 0) {
-      return (
-        <SelectField
-          key={index}
-          field={field}
-          value={formState[key]}
-          handleChange={handleChange}
-          errors={errors}
-          isRequired={isRequired}
-        />
-      );
-    }
+  const renderGovBrSelect = (selectOptions) => (
+    <div className="br-select form-group" key={index}>
+      <label htmlFor={key}>{labelText}{isRequired && ' *'}</label>
+      <select
+        id={key}
+        name={key}
+        className={`br-input ${errors[key] ? 'is-invalid' : ''}`}
+        value={formState[key] || ''}
+        onChange={(e) => handleChange(key, e.target.value, field)}
+      >
+        <option value="">Selecione</option>
+        {selectOptions.map((opt, i) => (
+          <option key={i} value={opt.uri || opt.value}>{opt.label}</option>
+        ))}
+      </select>
+      {errors[key] && <div className="invalid-feedback">{errors[key]}</div>}
+    </div>
+  );
 
+  // PRIORIDADES:
+  if (options && Array.isArray(options)) {
+    return renderGovBrSelect(options);
+  }
+
+  if (dataType?.[0] === 'http://www.w3.org/2001/XMLSchema#boolean') {
+    return renderGovBrSelect([
+      { value: 'true', label: 'Sim' },
+      { value: 'false', label: 'Não' }
+    ]);
+  }
+
+  if (subclasses && subclasses.length > 0) {
     return (
-      <InputField
+      <SelectField
         key={index}
         field={field}
         value={formState[key]}
@@ -220,7 +238,20 @@ const DynamicForm = ({ formData }) => {
         isRequired={isRequired}
       />
     );
-  };
+  }
+
+  return (
+    <InputField
+      key={index}
+      field={field}
+      value={formState[key]}
+      handleChange={handleChange}
+      errors={errors}
+      isRequired={isRequired}
+    />
+  );
+};
+
 
   const renderFields = () => {
     if (!formData || formData.length === 0) {
