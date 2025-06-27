@@ -233,28 +233,33 @@ const DynamicForm = ({ formData }) => {
     */
   );
 
-  const renderGovBrRadio = (index, field, selectOptions, isRequired) => (
+  const renderGovBrRadio = (index, field, selectOptions, isRequired) => {
+  const key = generateKey(field); // <- chave única para estado, id, name, etc.
 
-    <div className="mb-3" key={index}>
-      {/*}
-      <BrRadioGroup
-        name={field.property}
-        title={field.relatedClass}
-        options={selectOptions}
-        onChange={(e) => handleChangeRadio(key, e.target.value, field, e)}
-      />
-      */}
+  return (
+    <div className="mb-3" key={key}>
       <fieldset>
-        <legend className={isRequired ? "br-required-class" : ""}>{field.relatedClass}</legend>
+        <legend className={isRequired ? "br-required-class" : ""}>
+          {field.relatedClass}
+        </legend>
         {selectOptions.map((opt, i) => (
-          <div className="br-radio" key={i}>
-            <input type="radio" id={field.property + i} name={field.property} value={opt.uri || opt.value} />
-            <label htmlFor={field.property + i} >{opt.label}</label>
-        </div>
+          <div className="br-radio" key={`${key}-${i}`}>
+            <input
+              type="radio"
+              id={`${key}-${i}`}         // único
+              name={key}                 // único por campo
+              value={opt.value}
+              checked={formState[key] === opt.value}
+              onChange={() => handleChange(key, opt.value, field)}
+            />
+            <label htmlFor={`${key}-${i}`}>{opt.label}</label>
+          </div>
         ))}
+        {errors[key] && <div className="invalid-feedback">{errors[key]}</div>}
       </fieldset>
     </div>
   );
+};
 
   // PRIORIDADES:
   if (options && Array.isArray(options)) {
