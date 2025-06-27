@@ -181,7 +181,7 @@ class GovBr extends Component {
 					data={menuLinks}
 				/>
 
-				<div className="container mb-5">
+				<div className="container-md mb-5">
 
 					<div className="search-container">
 						<BrInput

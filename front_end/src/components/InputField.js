@@ -16,7 +16,8 @@ const InputField = ({ field, value, handleChange, errors, isRequired }) => {
   return (
     <div className="br-input mb-3">
       <label htmlFor={key}>
-        {capitalize(label)} ({capitalize(relatedClass)})
+        {/*  {capitalize(label)} ({capitalize(relatedClass)}) */}
+        {relatedClass}
         {isRequired ? <span className="text-danger"> *</span> : <span className="text-muted"> (Opcional)</span>}
       </label>
 

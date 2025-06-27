@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import SelectField from './SelectField'; // Importa o componente SelectField
 import InputField from './InputField';   // Importa o novo componente InputField
 
+import { BrSelect } from "@govbr-ds/react-components";
+
 // Função para capitalizar a primeira letra
 const capitalize = (text) => {
   return text.charAt(0).toUpperCase() + text.slice(1);
@@ -196,7 +198,22 @@ const DynamicForm = ({ formData }) => {
   const isRequired = cardinality && ['min 1', 'only', 'exactly 1', 'some'].includes(cardinality);
   const labelText = label || key;
 
+  const selectType = ["min 1", "some"].includes(cardinality)
+      ? "multiple"
+      : "single";
+
   const renderGovBrSelect = (selectOptions) => (
+
+    <BrSelect
+          id={key}
+          options={selectOptions}
+          className="mb-3"
+          type={selectType}
+          label={relatedClass}
+          placeholder="Selecione"
+           key={index}
+        />
+    /*
     <div className="br-select form-group" key={index}>
       <label htmlFor={key}>{labelText}{isRequired && ' *'}</label>
       <select
@@ -213,18 +230,47 @@ const DynamicForm = ({ formData }) => {
       </select>
       {errors[key] && <div className="invalid-feedback">{errors[key]}</div>}
     </div>
+    */
+  );
+
+  const renderGovBrRadio = (index, field, selectOptions, isRequired) => (
+
+    <div className="mb-3" key={index}>
+      {/*}
+      <BrRadioGroup
+        name={field.property}
+        title={field.relatedClass}
+        options={selectOptions}
+        onChange={(e) => handleChangeRadio(key, e.target.value, field, e)}
+      />
+      */}
+      <fieldset>
+        <legend className={isRequired ? "br-required-class" : ""}>{field.relatedClass}</legend>
+        {selectOptions.map((opt, i) => (
+          <div className="br-radio" key={i}>
+            <input type="radio" id={field.property + i} name={field.property} value={opt.uri || opt.value} />
+            <label htmlFor={field.property + i} >{opt.label}</label>
+        </div>
+        ))}
+      </fieldset>
+    </div>
   );
 
   // PRIORIDADES:
   if (options && Array.isArray(options)) {
-    return renderGovBrSelect(options);
+    // Adaptando para o BrSelect
+    const brOptions = options.map((item) => ({
+      value: item.uri,
+      label: item.label,
+    }));
+    return renderGovBrSelect(brOptions);
   }
 
   if (dataType?.[0] === 'http://www.w3.org/2001/XMLSchema#boolean') {
-    return renderGovBrSelect([
-      { value: 'true', label: 'Sim' },
-      { value: 'false', label: 'Não' }
-    ]);
+    return renderGovBrRadio(index, field, [
+      { value: "true", label: "Sim", checked: true },
+      { value: "false", label: "Não", checked: false },
+    ], isRequired);
   }
 
   if (subclasses && subclasses.length > 0) {

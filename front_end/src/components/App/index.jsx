@@ -136,7 +136,7 @@ export const App = ({ selectedDocumentUri }) => {
 
    useEffect(() => {
        if (!selectedDocumentUri) return;
-    
+
        const root = classHierarchy[0];
        if (root && root.subclasses && root.subclasses.length > 0) {
          handleSubclassSelect(selectedDocumentUri, 0);
@@ -191,7 +191,7 @@ export const App = ({ selectedDocumentUri }) => {
               ))}
             </div>
 
-            {formLoading && <div className="br-card"><div class="card-content">{language === 'pt' ? 'Carregando formulário...' : 'Loading form...'}</div></div>}
+            {formLoading && <div className="br-card"><div className="card-content">{language === 'pt' ? 'Carregando formulário...' : 'Loading form...'}</div></div>}
             {formData && !formLoading && (
               language === 'pt'
                 ? <DynamicForm formData={formData} />
