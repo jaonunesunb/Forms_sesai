@@ -77,6 +77,24 @@ const DynamicForm = ({ formData }) => {
     return error;
   };
 
+  const handleChangeSelect = (key, e, field) => {
+
+    // Tente pegar o valor selecionado
+    const value = e?.target?.value ?? e?.value ?? e; // cobre diferentes formatos
+
+    // Atualize o estado e valide
+    setFormState((prevState) => ({
+      ...prevState,
+      [key]: value,
+    }));
+
+    const error = validateField(value, field);
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [key]: error,
+    }));
+  };
+
   const handleChange = (key, value, field) => {
     setFormState((prevState) => ({
       ...prevState,
@@ -210,6 +228,7 @@ const DynamicForm = ({ formData }) => {
           className="mb-3"
           type={selectType}
           label={relatedClass}
+          onChange={(e) => handleChangeSelect(key, e, field)}
           placeholder="Selecione"
            key={index}
         />
@@ -265,7 +284,7 @@ const DynamicForm = ({ formData }) => {
   if (options && Array.isArray(options)) {
     // Adaptando para o BrSelect
     const brOptions = options.map((item) => ({
-      value: item.uri,
+      value: item.label,
       label: item.label,
     }));
     return renderGovBrSelect(brOptions);
