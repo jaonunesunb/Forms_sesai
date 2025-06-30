@@ -141,24 +141,27 @@ def process_restriction(g, restriction, labels):
 
     return (on_property, on_class_labels, cardinality_str)
 
-# Atualizar a lógica para lidar com datas e horas corretamente
+import json
+from rdflib import URIRef, BNode, RDFS, OWL, RDF
+
 def list_restrictions_and_data_properties(g, class_uri, labels, labels_to_uris, descriptions):
     restrictions = []
     selectable = get_selectable_classes(g)
     selectable_instances_map = {
-        str(cls): [{"uri": str(ind), "label": get_label(g, ind, LANGUAGE)}
-                for ind in g.subjects(RDF.type, cls)]
+        str(cls): [
+            {"uri": str(ind), "label": get_label(g, ind, LANGUAGE)}
+            for ind in g.subjects(RDF.type, cls)
+        ]
         for cls in selectable
     }
-    
+
     def get_restrictions_recursive(uri):
         if str(uri) == 'http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000557':
             return
-
-        for _, p, o in g.triples((URIRef(uri), RDFS.subClassOf, None)):
+        for _, _, o in g.triples((URIRef(uri), RDFS.subClassOf, None)):
             if isinstance(o, URIRef):
                 get_restrictions_recursive(o)
-            if isinstance(o, BNode) or isinstance(o, URIRef):
+            if isinstance(o, (BNode, URIRef)):
                 if (o, OWL.intersectionOf, None) in g:
                     for item in process_collection(g, g.value(o, OWL.intersectionOf)):
                         if (item, OWL.onProperty, None) in g:
@@ -169,68 +172,58 @@ def list_restrictions_and_data_properties(g, class_uri, labels, labels_to_uris, 
     get_restrictions_recursive(class_uri)
 
     data_fields = []
-    for restriction in restrictions:
-        if len(restriction) == 3:
-            property_uri, related_classes, cardinality = restriction
+    for property_uri, related_classes, cardinality in restrictions:
+        for related_class in related_classes:
+            if isinstance(related_class, (list, tuple)):
+                related_class_str = ' - '.join(
+                    [labels.get(cls, str(cls)) for cls in related_class]
+                )
+            else:
+                if isinstance(related_class, str) and related_class in labels_to_uris:
+                    related_class = labels_to_uris[related_class]
+                related_class_str = labels.get(related_class, str(related_class))
 
-            for related_class in related_classes:
-                if isinstance(related_class, (list, tuple)):
-                    related_class_str = ' - '.join(
-                        [labels.get(cls, str(cls)) for cls in related_class]
-                    )
-                else:
-                    if isinstance(related_class, str) and related_class in labels_to_uris:
-                        related_class = labels_to_uris[related_class]
-                    related_class_str = labels.get(related_class, str(related_class))
-
-                # Tratar exatamente 1 para data e hora
-                if cardinality == "exactly 1":
+            related_class_uri = str(related_class)
+            data_props = find_data_properties_for_related_classes(g, related_class)
+            if data_props:
+                for prop_uri, prop_restrictions in data_props:
                     data_fields.append({
                         "property": str(property_uri),
                         "label": labels.get(property_uri, property_uri),
+                        "dataType": [
+                            str(t) for t in prop_restrictions.get('type', [])
+                        ] or ["http://www.w3.org/2001/XMLSchema#string"],
+                        "restrictions": prop_restrictions,
                         "relatedClass": related_class_str,
-                        "dataType": ["http://www.w3.org/2001/XMLSchema#time"] if "horário" in related_class_str or "time" in related_class_str else ["http://www.w3.org/2001/XMLSchema#date"] if "data" in related_class_str or "date" in related_class_str else ["http://www.w3.org/2001/XMLSchema#string"],
-                        "cardinality": cardinality 
+                        "relatedClassUri": related_class_uri,
+                        "cardinality": cardinality
                     })
-                else:
-                    subclasses = list_subclasses(g, related_class, labels)
-                    if subclasses:
-                        data_fields.append({
-                            "property": str(property_uri),
-                            "label": labels.get(property_uri, property_uri),
-                            "relatedClass": related_class_str,
-                            "relatedClassUri": str(related_class),
-                            "subclasses": subclasses,
-                            "cardinality": cardinality
-                        })
-                    else:
-                        data_props = find_data_properties_for_related_classes(g, related_class)
-                        if data_props:
-                            for prop_uri, prop_restrictions in data_props:
-                                data_fields.append({
-                                    "property": str(property_uri),
-                                    "label": labels.get(property_uri, property_uri),
-                                    "dataType": prop_restrictions.get('type', ['http://www.w3.org/2001/XMLSchema#string']),
-                                    "restrictions": prop_restrictions,
-                                    "relatedClass": related_class_str,
-                                    "relatedClassUri": str(related_class),
-                                    "cardinality": cardinality
-                                })
-                        else:
-                            data_fields.append({
-                                "property": str(property_uri),
-                                "label": labels.get(property_uri, property_uri),
-                                "relatedClass": related_class_str,
-                                "relatedClassUri": str(related_class),
-                                "cardinality": cardinality,
-                                "status": "em construção"
-                            })
+            else:
+                data_fields.append({
+                    "property": str(property_uri),
+                    "label": labels.get(property_uri, property_uri),
+                    "relatedClass": related_class_str,
+                    "relatedClassUri": related_class_uri,
+                    "dataType": ["http://www.w3.org/2001/XMLSchema#string"],
+                    "cardinality": cardinality,
+                    "status": "em construção"
+                })
+
+    # --- deduplicação: mantém apenas a primeira ocorrência de cada classe relacionada ---
+    unique_fields = []
+    seen = set()
+    for detail in data_fields:
+        key = (detail["property"], detail["relatedClassUri"], detail["cardinality"])
+        if key not in seen:
+            seen.add(key)
+            unique_fields.append(detail)
+    data_fields = unique_fields
+    # --- fim da deduplicação ---
+
     for detail in data_fields:
         uri = detail.get("relatedClassUri", detail["relatedClass"])
         if uri in descriptions:
             detail["description"] = descriptions[uri]
-        
-        # Novo: Adiciona opções se a classe for "é select"
         if uri in selectable_instances_map:
             detail["options"] = selectable_instances_map[uri]
 
