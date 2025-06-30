@@ -2176,9 +2176,9 @@ Werner suggests a solution based on &quot;Magnitudes&quot; a proposal for which 
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000144"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000145"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000146"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000453"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000166"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000167"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000455"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000456"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000462"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000472"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000535"/>
@@ -2207,6 +2207,8 @@ Werner suggests a solution based on &quot;Magnitudes&quot; a proposal for which 
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000132"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000133"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000134"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000149"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000169"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000535"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000542"/>
         <rdfs:range>
@@ -2239,8 +2241,10 @@ Werner suggests a solution based on &quot;Magnitudes&quot; a proposal for which 
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000502"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000507"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000517"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000520"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000522"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000524"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000526"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000528"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000529"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000530"/>
@@ -2250,7 +2254,6 @@ Werner suggests a solution based on &quot;Magnitudes&quot; a proposal for which 
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000543"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000547"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000553"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000555"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000558"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000561"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000563"/>
@@ -2268,6 +2271,7 @@ Werner suggests a solution based on &quot;Magnitudes&quot; a proposal for which 
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000613">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000148"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000168"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000451"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000461"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000463"/>
@@ -2292,6 +2296,7 @@ Werner suggests a solution based on &quot;Magnitudes&quot; a proposal for which 
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000535"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000536"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000545"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000555"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000559"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000560"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000562"/>
@@ -4147,7 +4152,7 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000460"/>
         <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-25T20:01:12Z</dc:date>
-        <rdfs:label xml:lang="pt-br">Comunidade tem o hábito de utilizar sabão para lavar as mãos</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Comunidade tem o hábito de utilizar sabão para lavar as mãos?</rdfs:label>
     </owl:Class>
     
 
@@ -4158,7 +4163,7 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000460"/>
         <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-25T20:04:28Z</dc:date>
-        <rdfs:label xml:lang="pt-br">Comunidade tem acesso a papel higiênico</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Comunidade tem acesso a papel higiênico?</rdfs:label>
     </owl:Class>
     
 
@@ -4169,7 +4174,7 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000460"/>
         <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-25T20:05:27Z</dc:date>
-        <rdfs:label xml:lang="pt-br">Mulheres da comunidade tem acesso a absorventes higiênicos</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Mulheres da comunidade tem acesso a absorventes higiênicos?</rdfs:label>
     </owl:Class>
     
 
@@ -4216,7 +4221,7 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
         <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-25T22:55:56Z</dc:date>
         <dc:description xml:lang="pt-br">Este campo de entrada de dados deve ser preenchido caso o campo de entrada de dados Estado de conservação da estrutura tenha sido preenchido como &apos;Insatisfatório”. Neste caso, deve-se especificar neste campo de entrada de dados os motivo da estrutura está insatisfatória, indicando rachadura ou falha no funcionamento. Caso não haja, deixar em branco.</dc:description>
-        <rdfs:label xml:lang="pt-br">Causa(s) da estrutura ser insatisfatória</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Causa(s) da estrutura de abastecimento ser insatisfatória</rdfs:label>
     </owl:Class>
     
 
@@ -4227,7 +4232,7 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000460"/>
         <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-25T23:45:20Z</dc:date>
-        <rdfs:label xml:lang="pt-br">Causa(s) da estrutura não está em operação</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Causa(s) da estrutura de abastecimento não está em operação</rdfs:label>
     </owl:Class>
     
 
@@ -4239,7 +4244,7 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
         <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-26T00:49:04Z</dc:date>
         <dc:description xml:lang="pt-br">Este campo de entrada de dados deve ser preenchido com o tipo de tratamento da água adotado na aldeia quando nenhuma das opções do campo &apos;Tratamento de água&quot; existe na aldeia ou em caso de combinação de dois ou mais tratamentos. Neste caso, deve-se especificar os dois ou mais tratamentos usados.</dc:description>
-        <rdfs:label xml:lang="pt-br">Outro tipo de tratamento de água</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Outro tipo de tratamento da água</rdfs:label>
     </owl:Class>
     
 
@@ -4250,7 +4255,7 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000460"/>
         <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-26T01:42:06Z</dc:date>
-        <rdfs:label xml:lang="pt-br">Quantidade de reservatórios localizados na Aldeia</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Quantidade de reservatórios de água localizados na Aldeia</rdfs:label>
     </owl:Class>
     
 
@@ -4309,7 +4314,7 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000460"/>
         <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-26T04:39:33Z</dc:date>
-        <rdfs:label xml:lang="pt-br">Banheiros utilizados são integrados nas residências</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Banheiros utilizados são integrados nas residências?</rdfs:label>
     </owl:Class>
     
 
@@ -4332,6 +4337,7 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000460"/>
         <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-26T05:13:45Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Causa(s) da estrutura de saneamento ser insatisfatória</rdfs:label>
     </owl:Class>
     
 
@@ -4343,6 +4349,52 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
         <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-26T13:06:41Z</dc:date>
         <rdfs:label xml:lang="pt-br">Aldeia está inserida em contrato de manutenção?</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000166 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000166">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000460"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-27T21:35:07Z</dc:date>
+        <dc:description xml:lang="pt-br">Latitude em Grau Decimal (Converta os minutos e segundos em graus decimais: Para fazer isso, divida os minutos por 60 e os segundos por 3600. Por exemplo, 45 minutos é igual a 45/60 = 0,75 graus e 30 segundos é igual a 30/3600 = 0,0083 graus.)</dc:description>
+        <rdfs:label xml:lang="pt-br">Lat S</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000167 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000167">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000460"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-27T21:35:19Z</dc:date>
+        <dc:description xml:lang="pt-br">Longitude em Grau Decimal (Converta os minutos e segundos em graus decimais: Para fazer isso, divida os minutos por 60 e os segundos por 3600. Por exemplo, 45 minutos é igual a 45/60 = 0,75 graus e 30 segundos é igual a 30/3600 = 0,0083 graus.)</dc:description>
+        <rdfs:label xml:lang="pt-br">Lat W</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000168 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000168">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000460"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-27T22:34:28Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Estado de conservação da estrutura de saneamento</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000169 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000169">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000460"/>
+        <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-27T22:45:46Z</dc:date>
+        <rdfs:label xml:lang="pt-br">Causa(s) da estrutura de saneamento não está em operação</rdfs:label>
     </owl:Class>
     
 
@@ -4471,7 +4523,7 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-20T17:16:23Z</dc:date>
         <dc:description xml:lang="pt-br">Avaliar se a aldeia é nômade (não possui local fixo), semi-nômade (migra periodicamente) ou sedentária (mora em local fixo).</dc:description>
-        <rdfs:label xml:lang="pt">Característica de mobilidade</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Característica de mobilidade</rdfs:label>
     </owl:Class>
     
 
@@ -4482,8 +4534,8 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000460"/>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-20T17:16:39Z</dc:date>
-        <dc:description xml:lang="pt-br">Município onde se localiza a aldeia.</dc:description>
-        <rdfs:label xml:lang="pt">Município</rdfs:label>
+        <dc:description xml:lang="pt-br">Nome do município onde se localiza a aldeia.</dc:description>
+        <rdfs:label xml:lang="pt-br">Nome do município</rdfs:label>
     </owl:Class>
     
 
@@ -4519,7 +4571,7 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-20T17:19:56Z</dc:date>
         <dc:description xml:lang="pt-br">Qual(is) a(s) etnia(s) que vive(m) na aldeia.</dc:description>
-        <rdfs:label xml:lang="pt">Etnias diversas</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Etnias diversas</rdfs:label>
     </owl:Class>
     
 
@@ -4557,7 +4609,7 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-20T17:21:38Z</dc:date>
         <dc:description xml:lang="pt-br">Especificar o meio de acesso à aldeia: Terrestre, Aéreo, Fluvial ou a combinação de mais de um meio.</dc:description>
-        <rdfs:label xml:lang="pt">Logística de acesso</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Logística de acesso</rdfs:label>
     </owl:Class>
     
 
@@ -4612,7 +4664,7 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
         </rdfs:subClassOf>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-20T19:00:40Z</dc:date>
-        <rdfs:label xml:lang="pt">Formulário de Informações do DSEI</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Formulário de Informações do DSEI</rdfs:label>
     </owl:Class>
     
 
@@ -4644,7 +4696,7 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
         </rdfs:subClassOf>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-22T21:16:57Z</dc:date>
-        <rdfs:label xml:lang="pt">Formulário de Informações do Polo Base</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Formulário de Informações do Polo Base</rdfs:label>
     </owl:Class>
     
 
@@ -4696,6 +4748,20 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000131"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000166"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000167"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -4756,7 +4822,7 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
         </rdfs:subClassOf>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-22T21:19:59Z</dc:date>
-        <rdfs:label xml:lang="pt">Formulário de Informações da Aldeia</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Formulário de Informações da Aldeia</rdfs:label>
     </owl:Class>
     
 
@@ -4765,6 +4831,42 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
 
     <owl:Class rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000500">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000557"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000143"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000144"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000145"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000146"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000149"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000169"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
@@ -4798,43 +4900,8 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000132"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000143"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000144"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000145"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000146"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000501"/>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000168"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -4855,19 +4922,12 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000565"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000608"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-21T19:00:00Z</dc:date>
-        <rdfs:label xml:lang="pt">Formulário de Informações sobre a Coleta e o Tratamento de Esgoto</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Formulário de Informações sobre a Coleta e o Tratamento de Esgoto</rdfs:label>
     </owl:Class>
     
 
@@ -4878,7 +4938,7 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-21T19:00:00Z</dc:date>
-        <rdfs:label xml:lang="pt">estrutura de saneamento</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Estrutura de saneamento</rdfs:label>
     </owl:Class>
     
 
@@ -4889,7 +4949,7 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000460"/>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-21T19:00:00Z</dc:date>
-        <rdfs:label xml:lang="pt">coleta de esgoto</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Coleta de esgoto</rdfs:label>
     </owl:Class>
     
 
@@ -4901,7 +4961,7 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-21T19:00:00Z</dc:date>
         <dc:description xml:lang="pt-br">&quot;MSD Individual: Melhoria Sanitária Domiciliar Individual - instalações hidrossanitárias, minimamente compostas por vaso sanitário, descarga de água, lavatório que conduz o esgoto até seu tratamento e disposição final. MSD Coletivo -  Melhoria Sanitária Domiciliar Coletiva - junção de dois ou mais MSD individual no mesmo ambiente, minimamente compostas por vasos sanitários, descargas de água, lavatórios que conduzem o esgoto até seu tratamento e disposição final. MSD (Individual + Coletivo): quando na aldeia tiver a presença dos dois tipos de MSD. Rede Pública: quando a coleta de esgoto é realizada por rede pública de esgoto construída e mantida pela concessionária local. Rede SESAI: quando a coleta de esgoto é realizada por rede de esgoto construída e mantida pelo DSEI. Banheiro Particular: quando não existir rede de esgoto e os aldeados usam banheiros próprios. Casinha/Latrina: quando a aldeia tem a &apos;privada de fossa seca&apos; compreende a &apos;casinha/latrina&apos;. Não há: quando a aldeia não tem coleta de esgoto de nenhuma forma.&quot;</dc:description>
-        <rdfs:label xml:lang="pt-br">Tipo de coleta de esgoto</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Principal tipo de coleta de esgoto</rdfs:label>
     </owl:Class>
     
 
@@ -4951,7 +5011,7 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-21T19:00:00Z</dc:date>
-        <rdfs:label xml:lang="pt">separação de água fecais (bacia sanitárias) das águas cinzas geradas na edificação</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Há separação de água fecais (bacia sanitárias) das águas cinzas geradas na edificação?</rdfs:label>
     </owl:Class>
     
 
@@ -4996,7 +5056,7 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-21T19:00:00Z</dc:date>
         <dc:description xml:lang="pt-br">&quot;Rede: quando há rede de distribuição da água que leva da fonte de captação e, se for o caso, tratamento, até às casas dos moradores. Chafariz: quando há um ponto de coleta de água na comunidade, onde os moradores devem coletar a água e levar até suas casas. Não há: quando não há distribuição de água na aldeia. OBS: Caso a opção de fornecimento de água não contemple nenhuma forma de distribuição.&quot;</dc:description>
-        <rdfs:label xml:lang="pt-br">Tipo de distribuição de Água</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Tipo de distribuição de água</rdfs:label>
     </owl:Class>
     
 
@@ -5008,7 +5068,7 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-21T19:00:00Z</dc:date>
         <dc:description xml:lang="pt-br">&quot;Superficial: água vinda de rios e lagos. Subterrânea: água vinda de poços e nascentes. Superficial e água de chuva: combinação de rios e/ou lagos com captação de água da chuva. Superficial e Subterrânea: combinação de rios e/ou lagos com poços e/ou nascentes. Subterrânea e água de chuva: combinação de poços e/ou nascentes com água da chuva.&quot;</dc:description>
-        <rdfs:label xml:lang="pt">Fonte de captação</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Fonte de captação</rdfs:label>
     </owl:Class>
     
 
@@ -5032,7 +5092,7 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-21T19:00:00Z</dc:date>
         <dc:description xml:lang="pt-br">&quot;Atividades Agrícola: Há presença de atividades agrícolas provocando contaminação/poluição próxima à aldeia, por meio de contaminação por agrotóxicos, por exemplo. Atividades de mineração : Há presença de mineração/garimpo provocando contaminação/poluição próxima à aldeia, por meio de contaminação por mercúrio, por exemplo. Resíduos sólidos: Há presença de resíduos sólidos provocando contaminação/poluição próxima à aldeia. Esgotos: Há presença de despejo de esgoto provocando contaminação/poluição próxima à aldeia. Outro(a): Há outra fonte de contaminação/poluição (especificar na coluna ao lado). Nenhum: Não há fontes de contaminação nas proximidades da aldeia.&quot;</dc:description>
-        <rdfs:label xml:lang="pt">Focos de contaminação/poluição no entorno do ponto de captação</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Foco de contaminação/poluição no entorno do ponto de captação</rdfs:label>
     </owl:Class>
     
 
@@ -5057,7 +5117,7 @@ Relates to the creation of a class &apos;selection rule&apos;</obo:IAO_0000116>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-21T19:00:00Z</dc:date>
         <dc:description xml:lang="pt-br">&quot;Eta convencional: Sistema composto por mistura rápida, coagulação, floculação, decantação, e desinfecção, que atende grandes populações. Eta Compacta: Sistema similar ao convencional, porém compacto, atendendo população menor. Pode apresentar menos etapas. Filtro de Areia: Sistema vinculado à meio filtrante de areia que garante o tratamento biológico da água, geralmente com baixa taxa de filtração. Salta-Z: Sistema criado pela FUNASA com coagulação feita pela adição de sulfato de alumínio, decantação, filtração em meio filtrante de zeólita, e cloração. Colorador: Desinfecção por meio da adição de cloro na água. Filtro e Colorador: Filtração e desinfecção por meio da adição de cloro na água. Dessalinizador: Remoção de sais da água por meio de tratamento específico como a osmose reversa. Filtro de Barro e hipoclorito de sódio: Filtração em meio cerâmico (velas) e desinfecção por adição de cloro na água.  Outro(a): Outros tipos de tratamento, como desinfecção solar e luz UV.
 Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há nem abastecimento. Exemplo: poços sem cloradores, sistemas por gravidade sem cloradores, aldeias que buscam a água nos rios sem tratamento.&quot;</dc:description>
-        <rdfs:label xml:lang="pt">Tratamento da água</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Tratamento da água</rdfs:label>
     </owl:Class>
     
 
@@ -5080,7 +5140,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-21T19:00:00Z</dc:date>
         <dc:description xml:lang="pt-br">Somatório da capacidade de armazenamento caso exista mais de um reservatório (indicar a capacidade em litros). Deve-se desconsiderar as caixas d&apos;água das residências.</dc:description>
-        <rdfs:label xml:lang="pt">capacidade do reservatório</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Capacidade do reservatório de água</rdfs:label>
     </owl:Class>
     
 
@@ -5091,7 +5151,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-21T19:00:00Z</dc:date>
-        <rdfs:label xml:lang="pt">material do reservatório</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Material do reservatório de água</rdfs:label>
     </owl:Class>
     
 
@@ -5102,7 +5162,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-21T19:10:00Z</dc:date>
-        <rdfs:label xml:lang="pt-br">estrutura de sustentação do reservatório</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Reservatório de água possui estrutura de sustentação?</rdfs:label>
     </owl:Class>
     
 
@@ -5113,7 +5173,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-21T19:10:00Z</dc:date>
-        <rdfs:label xml:lang="pt">material da estrutura de sustentação</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Material da estrutura de sustentação do reservatório de água</rdfs:label>
     </owl:Class>
     
 
@@ -5136,7 +5196,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-21T19:10:00Z</dc:date>
         <dc:description xml:lang="pt-br">&quot;Prefeitura: a Prefeitura realiza coleta de resíduos na aldeia regularmente. DSEI: o DSEI coleta os resíduos Sólidos da aldeia regularmente. Catadores: Uma cooperativa de catadores realiza coleta de resíduos na aldeia regularmente. Própria Aldeia: a própria aldeia se organiza para fazer a coleta de resíduos regularmente. Nenhum: Não Há coleta de resíduos na aldeia regularmente.&quot;</dc:description>
-        <rdfs:label xml:lang="pt-br">Responsável por coleta de resíduo sólido</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Responsável por coleta de resíduos sólidos</rdfs:label>
     </owl:Class>
     
 
@@ -5148,7 +5208,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-21T19:10:00Z</dc:date>
         <dc:description xml:lang="pt-br">&quot;Sim: quando a coleta realizada separa resíduos recicláveis e não recicláveis. Não: quando a coleta realizada mistura resíduos recicláveis e não recicláveis.&quot;</dc:description>
-        <rdfs:label xml:lang="pt">Coleta Seletiva de resíduo sólido</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Possui coleta seletiva implementada?</rdfs:label>
     </owl:Class>
     
 
@@ -5171,7 +5231,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-21T19:10:00Z</dc:date>
         <dc:description xml:lang="pt-br">&quot;Sim, na própria Aldeia: Há aterro construído na própria aldeia. Sim, em Aldeia próxima: Há aterro construído em aldeia próxima. Não: Não há aterro.&quot;</dc:description>
-        <rdfs:label xml:lang="pt-br">Aterro sanitário de pequeno porte segundo a ABNT/NBR 15849/2010 na comunidade ou próximo à comunidade</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Existe aterro sanitário de pequeno porte segundo a ABNT/NBR 15849/2010 na comunidade ou próximo à comunidade?</rdfs:label>
     </owl:Class>
     
 
@@ -5194,7 +5254,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-21T19:10:00Z</dc:date>
         <dc:description xml:lang="pt-br">&quot;Sim: Há vala na comunidade para destinação de resíduos. Não: Não há vala na comunidade para destinação de resíduos.&quot;</dc:description>
-        <rdfs:label xml:lang="pt">Vala construída pela comunidade</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Há vala construída pela comunidade?</rdfs:label>
     </owl:Class>
     
 
@@ -5206,7 +5266,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-21T19:10:00Z</dc:date>
         <dc:description xml:lang="pt-br">&quot;Sim: A comunidade queima os resíduos. Não: A comunidade não queima os resíduos.&quot;</dc:description>
-        <rdfs:label xml:lang="pt-br">Ocorre queima de lixo pela comunidade</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Ocorre queima de lixo pela comunidade?</rdfs:label>
     </owl:Class>
     
 
@@ -5218,7 +5278,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-21T19:10:00Z</dc:date>
         <dc:description xml:lang="pt-br">&quot;Sim: A comunidade queima poda e/ou resto de capina. Não: A comunidade não queima poda e/ou resto de capina.&quot;</dc:description>
-        <rdfs:label xml:lang="pt-br">Ocorre de queima de poda e/ou de resto de capina pela comunidade</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Ocorre de queima de poda e/ou de resto de capina pela comunidade?</rdfs:label>
     </owl:Class>
     
 
@@ -5230,7 +5290,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-21T19:10:00Z</dc:date>
         <dc:description xml:lang="pt-br">&quot;Sim: Os resíduos são jogados em corpos hídricos e/ou na mata. Não: Os resíduos não são jogados em corpos hídricos e/ou na mata.&quot;</dc:description>
-        <rdfs:label xml:lang="pt-br">Destinação de resíduos no corpo hídrico ou na mata</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Há destinação de resíduos no corpo hídrico ou na mata?</rdfs:label>
     </owl:Class>
     
 
@@ -5263,7 +5323,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-21T19:10:00Z</dc:date>
-        <rdfs:label xml:lang="pt">processo de gerenciamento de resíduos sólidos</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Processo de gerenciamento de resíduos sólidos</rdfs:label>
     </owl:Class>
     
 
@@ -5306,7 +5366,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
     <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000538 -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000538">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000460"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-21T19:10:00Z</dc:date>
     </owl:Class>
@@ -5320,7 +5380,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-21T19:10:00Z</dc:date>
         <dc:description xml:lang="pt-br">&quot;Sim: Existe associação, cooperativa ou grupo de catadores perto da aldeia, mesmo que ainda não haja parcerias. Não: Não existe associação, cooperativa ou grupo de catadores perto da aldeia.&quot;</dc:description>
-        <rdfs:label xml:lang="pt-br">Associação, cooperativa ou grupo de catadores organizados para a coleta de materiais recicláveis na aldeia ou em suas proximidades</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Exite associação, cooperativa ou grupo de catadores organizados para a coleta de materiais recicláveis na aldeia ou em suas proximidades?</rdfs:label>
     </owl:Class>
     
 
@@ -5343,7 +5403,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-22T12:00:00Z</dc:date>
         <dc:description xml:lang="pt-br">&quot;Sim: Há na aldeia alguma coleta especial de resíduos destinados a logística reversa, conforme a lei 12.305 de 2010, as quais são: agrotóxicos (resíduos e embalagens), pilhas e baterias, pneus, óleos lubrificantes, lâmpadas (fluorescentes, vapor de sódios e mercúrio e de luz mista), produtos eletroeletrônico e seus componentes. Não: Não há iniciativas de coleta de logística reversa na aldeia.&quot;</dc:description>
-        <rdfs:label xml:lang="pt">logística reversa</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Adota logística reversa?</rdfs:label>
     </owl:Class>
     
 
@@ -5379,8 +5439,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000148"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000148"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -5434,7 +5493,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         </rdfs:subClassOf>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-22T12:00:00Z</dc:date>
-        <rdfs:label xml:lang="pt">Formulário de Infraestrutura de Higiene Pessoal da Comunidade</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Formulário de Infraestrutura de Higiene Pessoal da Comunidade</rdfs:label>
     </owl:Class>
     
 
@@ -5446,7 +5505,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-22T12:00:00Z</dc:date>
         <dc:description xml:lang="pt-br">&quot;Sim: Comunidade possui banheiros e todos os utilizam. Sim, só parte da comunidade usa: Comunidade possui banheiros, mas apenas parte dela os utilizam. Não: Comunidade possui banheiros, mas ninguém ou poucos utilizam. Não possui banheiro: Comunidade não possui banheiro.&quot;</dc:description>
-        <rdfs:label xml:lang="pt-br">Comunidade tem o hábito de utilizar banheiro para defecar</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Comunidade tem o hábito de utilizar banheiro para defecar?</rdfs:label>
     </owl:Class>
     
 
@@ -5457,7 +5516,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-22T12:00:00Z</dc:date>
-        <rdfs:label xml:lang="pt">estrutura de higiene da comunidade</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Estrutura de higiene da comunidade</rdfs:label>
     </owl:Class>
     
 
@@ -5468,7 +5527,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-22T12:00:00Z</dc:date>
-        <rdfs:label xml:lang="pt">pia em funcionamento acoplado no banheiro</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Pia em funcionamento acoplado no banheiro</rdfs:label>
     </owl:Class>
     
 
@@ -5500,7 +5559,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         </rdfs:subClassOf>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-22T21:31:32Z</dc:date>
-        <rdfs:label xml:lang="pt">Formulário de Informações do Município que sedia a Aldeia</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Formulário de Informações do Município que sedia a Aldeia</rdfs:label>
     </owl:Class>
     
 
@@ -5530,7 +5589,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         </rdfs:subClassOf>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-22T21:37:00Z</dc:date>
-        <rdfs:label xml:lang="pt">Formulário de Logística de Acesso à Aldeia</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Formulário de Logística de Acesso à Aldeia</rdfs:label>
     </owl:Class>
     
 
@@ -5539,12 +5598,6 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
 
     <owl:Class rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000552">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000557"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
-                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000154"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
@@ -5568,7 +5621,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         </rdfs:subClassOf>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-22T21:41:20Z</dc:date>
-        <rdfs:label xml:lang="pt">Formulário de Infraestrutura da Aldeia</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Formulário de Infraestrutura da Aldeia</rdfs:label>
     </owl:Class>
     
 
@@ -5580,7 +5633,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-22T21:42:19Z</dc:date>
         <dc:description xml:lang="pt-br">Sinalizar se há escola indígena na comunidade.</dc:description>
-        <rdfs:label xml:lang="pt">Escola indígena</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Há escola indígena?</rdfs:label>
     </owl:Class>
     
 
@@ -5591,7 +5644,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000460"/>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-22T21:44:06Z</dc:date>
-        <rdfs:label xml:lang="pt">infraestrutura da aldeia</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Infraestrutura da aldeia</rdfs:label>
     </owl:Class>
     
 
@@ -5603,7 +5656,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-22T21:44:45Z</dc:date>
         <dc:description xml:lang="pt-br">&quot;Rede Convencional: quando o fornecimento de energia para o funcionamento do SAA é dado meio da rede de concessionária pública. Grupo gerador: quando o fornecimento de energia para o funcionamento do SAA é dado por meio de grupo gerador. Sistema Fotovoltaico: quando o fornecimento de energia para o funcionamento do SAA é dado por meio de sistema fotovoltaico. Roda d&apos;Água: quando o bombeamento do sistema é feito por roda. Não há: quando a aldeia não tem fornecimento de energia elétrica.&quot;</dc:description>
-        <rdfs:label xml:lang="pt-br">Fornecimento de energia elétrica</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Tipo de fornecimento de energia elétrica</rdfs:label>
     </owl:Class>
     
 
@@ -5612,6 +5665,24 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
 
     <owl:Class rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000556">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000557"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000132"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000133"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000154"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
@@ -5633,80 +5704,60 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
-                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000558"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000558"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
-                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000559"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000559"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
-                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000560"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000560"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000132"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000561"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000133"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000562"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000561"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000563"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000562"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000564"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000563"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000565"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000564"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000565"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000566"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000566"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-22T21:45:48Z</dc:date>
-        <rdfs:label xml:lang="pt">Formulário de Abastecimento de Água</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Formulário de Abastecimento de Água</rdfs:label>
     </owl:Class>
     
 
@@ -5729,7 +5780,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-22T21:49:10Z</dc:date>
         <dc:description xml:lang="pt-br">Especificar se a aldeia é atendida por infraestrutura ou serviço de abastecimento de água.</dc:description>
-        <rdfs:label xml:lang="pt">Fornecimento de água para consumo</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Aldeia possui fornecimento de água para consumo?</rdfs:label>
     </owl:Class>
     
 
@@ -5741,7 +5792,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-22T21:49:33Z</dc:date>
         <dc:description xml:lang="pt-br">Informar a organização que mantém a infraestrutura ou serviço de abastecimento de água.</dc:description>
-        <rdfs:label xml:lang="pt">Instituição responsável por fornecimento de água</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Instituição responsável pelo abastecimento de água</rdfs:label>
     </owl:Class>
     
 
@@ -5753,7 +5804,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-22T21:49:46Z</dc:date>
         <dc:description xml:lang="pt-br">&quot;Sistema Alternativo Individual (SAI) - solução alternativa de abastecimento de água que atende a um único domicílio. Exemplo: captação de água da chuva, filtros de areia domiciliares, etc. Sistema Alternativo Coletivo (SAC) - solução que abastece toda a comunidade, mas que não inclui tratamento ou distribuição. Exemplo: poço tubular sem clorador, Salta-Z com chafariz (sem rede de distribuição). Sistema de Abastecimento de Água (SAA) - solução que abastece toda a comunidade, incluindo captação, reservação, tratamento e distribuição. Exemplo: poço tubular, reservatório, clorador e rede de abastecimento ou Salta-Z com rede de abastecimento. OBS: Sistemas sem tratamento ou sem rede de distribuição são considerados SAC e não SAA.&quot;</dc:description>
-        <rdfs:label xml:lang="pt-br">Tipo de sistema de fornecimento de água</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Tipo de sistema de abastecimento de água da Aldeia</rdfs:label>
     </owl:Class>
     
 
@@ -5764,7 +5815,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000460"/>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-22T21:52:47Z</dc:date>
-        <rdfs:label xml:lang="pt">Intermitência ou Racionamento na Distribuição</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Há intermitência ou racionamento no abastecimento do Sistema Alternativo Coletivo ou Sistema de Abastecimento de Água?</rdfs:label>
     </owl:Class>
     
 
@@ -5775,7 +5826,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000460"/>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-22T21:53:31Z</dc:date>
-        <rdfs:label xml:lang="pt">frequência da intermitência ou racionamento na distribuição</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Frequência da intermitência ou racionamento no abastecimento</rdfs:label>
     </owl:Class>
     
 
@@ -5799,7 +5850,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-22T21:56:25Z</dc:date>
         <dc:description xml:lang="pt-br">Se a infraestrutura de abastecimento de água não estiver na própria aldeia, indicar a localidade dela. Exemplo: &quot;aldeia X&quot;, &quot;Polo Base Y&quot;.</dc:description>
-        <rdfs:label xml:lang="pt-br">Localidade onde a estrutura está localizada</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Caso o sistema de abastecimento não se localize na Aldeia, qual o nome da localidade onde a insfraestrutura está localizada?</rdfs:label>
     </owl:Class>
     
 
@@ -5811,7 +5862,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-22T21:56:35Z</dc:date>
         <dc:description xml:lang="pt-br">Indicar se o estado de conservação da estrutura é satisfatório ou insatisfatório.</dc:description>
-        <rdfs:label xml:lang="pt">Estado de conservação da estrutura</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Estado de conservação da estrutura de abastecimento</rdfs:label>
     </owl:Class>
     
 
@@ -5822,7 +5873,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000460"/>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-22T21:56:44Z</dc:date>
-        <rdfs:label xml:lang="pt">Estrutura em operação</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Estrutura de abastecimento está em operação?</rdfs:label>
     </owl:Class>
     
 
@@ -5851,7 +5902,25 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000134"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000512"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000514"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000515"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -5869,26 +5938,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
-                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000514"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
-                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000515"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
-                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000558"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000134"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000558"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -5900,7 +5950,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         </rdfs:subClassOf>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-22T22:04:34Z</dc:date>
-        <rdfs:label xml:lang="pt">Formulário de Informações sobre a fonte de captação da aldeia</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Formulário de Informações sobre a Fonte de Captação da Aldeia</rdfs:label>
     </owl:Class>
     
 
@@ -5912,7 +5962,19 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000524"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000525"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000535"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -5931,19 +5993,6 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000542"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
-                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000524"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000535"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -6025,7 +6074,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         </rdfs:subClassOf>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-22T22:50:12Z</dc:date>
-        <rdfs:label xml:lang="pt">Formulário de Coleta de Resíduos Sólidos</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Formulário de Coleta de Resíduos Sólidos</rdfs:label>
     </owl:Class>
     
 
@@ -6037,20 +6086,19 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000135"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000519"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
-                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000135"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000548"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000521"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000521"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -6069,7 +6117,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         </rdfs:subClassOf>
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-22T23:07:07Z</dc:date>
-        <rdfs:label xml:lang="pt">Formulário de informações sobre os reservatórios de água da aldeia</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Formulário de Informações sobre os Reservatórios de Água da Aldeia</rdfs:label>
     </owl:Class>
     
 
@@ -6938,6 +6986,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
     <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000073 -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000073">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000168"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000565"/>
         <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-25T13:32:28Z</dc:date>
@@ -6949,6 +6998,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
     <!-- http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000074 -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000074">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000168"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000565"/>
         <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-25T13:32:44Z</dc:date>
@@ -7107,7 +7157,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000545"/>
         <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-25T19:57:43Z</dc:date>
-        <rdfs:label xml:lang="pt-br">Sim, só parte da comunidade usa</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Só parte da comunidade usa</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -7118,7 +7168,7 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000545"/>
         <dc:creator rdf:resource="https://orcid.org/0009-0002-9701-9375"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-25T19:58:03Z</dc:date>
-        <rdfs:label xml:lang="pt-br">Não, não possui banheiro</rdfs:label>
+        <rdfs:label xml:lang="pt-br">Não possui banheiro</rdfs:label>
     </owl:NamedIndividual>
     
 
