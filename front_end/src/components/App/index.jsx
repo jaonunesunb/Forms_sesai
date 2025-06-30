@@ -1,11 +1,11 @@
 import './styles.css';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import DynamicForm from '../DynamicForm'; // Formulário em português
 // import DynamicFormEn from '../DynamicFormEn'; // Formulário em inglês
 
 
-export const App = ({ selectedDocumentUri }) => {
+export const App = ({ selectedDocumentUri, formTitle = '' }) => {
 
   const [classHierarchy, setClassHierarchy] = useState([
     {
@@ -22,6 +22,7 @@ export const App = ({ selectedDocumentUri }) => {
   const [formLoading, setFormLoading] = useState(false);
   const [error, setError] = useState(null);
   const [language, setLanguage] = useState('pt'); // Estado que controla o idioma
+  const myRef = useRef(null);
 
   // Função para buscar o idioma do backend
   const fetchLanguage = async () => {
@@ -116,6 +117,7 @@ export const App = ({ selectedDocumentUri }) => {
     try {
       setFormLoading(true);
       setError(null);
+      myRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       const response = await fetch(`http://localhost:5000/get_class_details?class=${encodeURIComponent(uri)}`);
       if (!response.ok) throw new Error('Erro ao carregar dados do formulário');
       const data = await response.json();
@@ -135,22 +137,19 @@ export const App = ({ selectedDocumentUri }) => {
   }, []);
 
    useEffect(() => {
-       if (!selectedDocumentUri) return;
-
-       const root = classHierarchy[0];
-       if (root && root.subclasses && root.subclasses.length > 0) {
-         handleSubclassSelect(selectedDocumentUri, 0);
-       }
+      if (!selectedDocumentUri) return;
+      const root = classHierarchy[0];
+      if (root && root.subclasses && root.subclasses.length > 0) {
+        handleSubclassSelect(selectedDocumentUri, 0);
+      }
      }, [selectedDocumentUri, classHierarchy[0]?.subclasses.length]);
 
   return (
-    <div className="App">
+    <div className="App" ref={myRef}>
       <main className="container mt-4">
         <div className="card card-custom">
-          <div className="card-body">
-            <h2 className="form-title">
-              {language === 'pt' ? 'Formulário Dinâmico de Cadastro' : 'Dynamic Registration Form'}
-            </h2>
+          <div className={`card-body${formLoading ? ' d-none' : ''}`}>
+            <h2 className={`form-title text-center${!formTitle ? ' d-none' : ''}`}>{formTitle}</h2>
 
             {error && (
               <div className="alert alert-danger" role="alert">
@@ -164,7 +163,7 @@ export const App = ({ selectedDocumentUri }) => {
               </button>
             </div> */}
 
-            <div className="mb-4">
+            <div className="mb-4 d-none">
               {classHierarchy.map((level, index) => (
                 <div key={index} className="br-input mb-3">
                   <label>
