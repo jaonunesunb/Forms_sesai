@@ -4,16 +4,13 @@ import '@govbr-ds/core/dist/core.min.css';
 
 import '@govbr-ds/core/dist/core-init.min.js';
 
-
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Component } from 'react';
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 import { BrHeader, BrFooter, BrMenu, BrBreadcrumbs, BrInput, BrButton } from "@govbr-ds/react-components";
 
 import { App } from '../../components/App';
-
-import { Component } from 'react';
 
 import { loadDocuments } from '../../utils/load-documents';
 
@@ -23,6 +20,11 @@ class GovBr extends Component {
 	// const [ isCompact, setIsCompact ] = useState(false);
 	//	const [searchTerm, setSearchTerm] = useState('');
 	// const [ documents, setDocuments ] = useState([]);
+
+	constructor(props) {
+		super(props);
+		this.myRef = React.createRef();
+	}
 
 	state = {
 		isCompact: false,
@@ -35,6 +37,7 @@ class GovBr extends Component {
 		breadcrumbItems: [],
 		selectedDocument: null,
 	}
+
 
 	/*
 	useEffect(() => {
@@ -74,6 +77,7 @@ class GovBr extends Component {
 
 		this.setState({
 			documents: documents,
+			formTitle: ''
 		});
 	}
 
@@ -211,7 +215,7 @@ class GovBr extends Component {
 								<a href="#"
 								onClick={e => {
 									e.preventDefault();
-									this.setState({ selectedDocument: document.uri });
+									this.setState({ selectedDocument: document.uri, formTitle: document.label });
 								}}>
 								{document.label}</a>
 							</li>
@@ -219,7 +223,7 @@ class GovBr extends Component {
 					</ul>
 				</div>
 
-				<App selectedDocumentUri={this.state.selectedDocument} />
+				<App selectedDocumentUri={this.state.selectedDocument} formTitle={this.state.formTitle} />
 
 				<BrFooter urlLogo="/img/govbr-negativa.png" links={footerLinks} socialNetworks={redesSociais} />
 
