@@ -6470,7 +6470,6 @@ Não há: Quando há apenas o abastecimento, sem tratamento, ou quando não há 
         <dc:contributor rdf:resource="https://orcid.org/0009-0000-4718-751X"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-31T17:15:24Z</dc:date>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-31T17:15:38Z</dc:date>
-        <rdfs:label xml:lang="pt">Capacidade de Atendimento</rdfs:label>
         <rdfs:label xml:lang="pt">Equipe instalada</rdfs:label>
     </owl:Class>
     
