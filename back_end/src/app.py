@@ -49,8 +49,12 @@ DATABASE_URL = os.getenv(
 # -----------------------------------------------------------------------------
 # SQLAlchemy models / infra
 # -----------------------------------------------------------------------------
-engine = create_engine(DATABASE_URL, echo=False, future=True)
-
+engine = create_engine(
+    DATABASE_URL,
+    echo=False,
+    future=True,
+    connect_args={"client_encoding": "utf8"},
+)
 
 class Base(DeclarativeBase):
     pass
@@ -69,9 +73,7 @@ class FormSubmission(Base):
 def ensure_tables():
     Base.metadata.create_all(engine)
 
-@app.before_first_request
-def initialize_database():
-    """Garante que as tabelas existam antes do primeiro request."""
+with app.app_context():
     ensure_tables()
 
 # -----------------------------------------------------------------------------
