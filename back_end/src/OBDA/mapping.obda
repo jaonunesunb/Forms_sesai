@@ -1,0 +1,24 @@
+[PrefixDeclaration]
+:      http://example.org/ontology#
+rdf:   http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs:  http://www.w3.org/2000/01/rdf-schema#
+xsd:   http://www.w3.org/2001/XMLSchema#
+
+[SourceDeclaration]
+sourceId      conn
+connectionUrl jdbc:postgresql://localhost:5432/postgres
+username      postgres
+password      postgres
+driverClass   org.postgresql.Driver
+
+[MappingDeclaration] @collection [[
+mappingId   person_mapping
+target      :Person({id})
+source      SELECT id, name FROM persons
+]]
+
+[MappingDeclaration] @collection [[
+mappingId   name_mapping
+target      :hasName({id}, {name})
+source      SELECT id, name FROM persons
+]]

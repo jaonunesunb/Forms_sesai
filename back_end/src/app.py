@@ -2,7 +2,7 @@ import os
 import json
 import logging
 from typing import Any, Dict
-
+from datetime import datetime
 from dotenv import load_dotenv
 from flask import Flask, jsonify, request, Response
 from flask_cors import CORS
@@ -10,6 +10,9 @@ from flask_cors import CORS
 # --- Arango: adaptador local (evita colisão com o pacote 'python-arango') ---
 # Crie 'arango_utils.py' com a função db_get_subclasses(class_uri) conforme combinado.
 from arango_utils import db_get_subclasses
+
+# --- Ontop client -----------------------------------------------------------
+from ontop_client import query_ontop
 
 # --- Parser/OWL existente no projeto ---
 import o_parse_back_end as op  # mantém suas funções de parse
@@ -58,7 +61,7 @@ class FormSubmission(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     class_key: Mapped[str] = mapped_column(String(255), index=True, nullable=False)
     payload: Mapped[dict] = mapped_column(JSONB, nullable=False)
-    created_at: Mapped[str] = mapped_column(
+    created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now()
     )
 
@@ -66,6 +69,10 @@ class FormSubmission(Base):
 def ensure_tables():
     Base.metadata.create_all(engine)
 
+@app.before_first_request
+def initialize_database():
+    """Garante que as tabelas existam antes do primeiro request."""
+    ensure_tables()
 
 # -----------------------------------------------------------------------------
 # Rotas utilitárias
@@ -186,6 +193,22 @@ def get_class_details():
         log.exception("Erro ao obter detalhes da classe")
         return jsonify({"error": str(e)}), 500
 
+# -----------------------------------------------------------------------------
+# Ontop SPARQL endpoint
+# -----------------------------------------------------------------------------
+@app.post("/api/ontop_query")
+def ontop_query():
+    """Recebe uma consulta SPARQL e retorna o resultado do Ontop em JSON."""
+    data = request.get_json(force=True) or {}
+    sparql = data.get("query")
+    if not sparql:
+        return jsonify({"error": "query parameter is required"}), 400
+
+    try:
+        return jsonify(query_ontop(sparql))
+    except Exception as e:
+        log.exception("Erro consultando Ontop")
+        return jsonify({"error": str(e)}), 500
 
 # -----------------------------------------------------------------------------
 # Main
