@@ -21,7 +21,7 @@ ontology_graph = op.load_ontology(OWL_PATH)
 ARANGO_URL = os.getenv("ARANGO_URL", "http://arango:8529")
 ARANGO_DB = os.getenv("ARANGO_DB", "owl_db")
 ARANGO_USER = os.getenv("ARANGO_USER", "root")
-ARANGO_PASSWORD = os.getenv("ARANGO_PASSWORD", "")
+ARANGO_PASSWORD = os.getenv("ARANGO_PASSWORD", "pwd")
 arango_client = ArangoClient(hosts=ARANGO_URL)
 arango_db = arango_client.db(ARANGO_DB, username=ARANGO_USER, password=ARANGO_PASSWORD)
 
@@ -138,6 +138,10 @@ def save_instance():
         cur.execute(
             "INSERT INTO form_submissions (data) VALUES (%s)",
             (json.dumps(payload),),
+        )
+        cur.execute(
+            "INSERT INTO arango_classes (class_uri) VALUES (%s) ON CONFLICT DO NOTHING",
+            (class_uri,),
         )
         cur.execute(
             "INSERT INTO vertex_instances (class_uri, data) VALUES (%s, %s) RETURNING id",
