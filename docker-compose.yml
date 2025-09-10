@@ -1,34 +1,50 @@
-version: '3.8'
 services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: forms
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 15
+
+  arango:
+    image: arangodb:3.11
+    environment:
+      ARANGO_ROOT_PASSWORD: pwd
+    ports:
+      - "8529:8529"
+    # (opcional) healthcheck simples – pode omitir se preferir
+    # healthcheck:
+    #   test: ["CMD-SHELL", "wget -q -O- http://localhost:8529/_admin/server/availability >/dev/null 2>&1 || exit 1"]
+    #   interval: 5s
+    #   timeout: 5s
+    #   retries: 30
+
   backend:
     build: ./back_end
-    ports:
-      - "5000:5000"
     environment:
+      POSTGRES_DSN: postgresql://postgres:postgres@postgres:5432/forms
       ARANGO_URL: http://arango:8529
       ARANGO_DB: owl_db
       ARANGO_USER: root
-      ARANGO_PASSWORD: example
-      POSTGRES_DSN: postgresql://postgres:postgres@postgres:5432/forms
+      ARANGO_PASSWORD: ""
     depends_on:
-      - arango
-      - postgres
+      postgres:
+        condition: service_healthy
+      # arango:  # habilite se fizer healthcheck no arango
+      #   condition: service_healthy
+    ports:
+      - "5000:5000"
+
   frontend:
     build: ./front_end
     ports:
       - "3000:3000"
     depends_on:
       - backend
-  arango:
-    image: arangodb:3.11
-    environment:
-      ARANGO_ROOT_PASSWORD: example
-    ports:
-      - "8529:8529"
-  postgres:
-    image: postgres:14
-    environment:
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: forms
-    ports:
-      - "5432:5432"

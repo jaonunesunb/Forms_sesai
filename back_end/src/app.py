@@ -39,6 +39,25 @@ with pg_conn.cursor() as cur:
 # Variável global de idioma, com valor padrão como 'pt'
 current_language = 'pt'
 
+# em app.py
+import time
+import psycopg2
+from psycopg2 import OperationalError
+
+def connect_pg(dsn, retries=20, delay=1):
+    for i in range(retries):
+        try:
+            conn = psycopg2.connect(dsn)
+            conn.autocommit = True
+            return conn
+        except OperationalError as e:
+            print(f"[PG] tentativa {i+1}/{retries}: {e}")
+            time.sleep(delay)
+    raise
+
+pg_conn = connect_pg(POSTGRES_DSN)
+
+
 # Função para alterar o idioma global
 @app.route('/set_language', methods=['POST'])
 def set_language():
@@ -130,3 +149,5 @@ def get_class_details_arango():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    import os
+    app.run(host="0.0.0.0", port=int(os.getenv("PORT", 5000)), debug=True)
