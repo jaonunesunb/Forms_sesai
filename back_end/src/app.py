@@ -8,6 +8,8 @@ import psycopg2
 import o_parse_back_end as op
 import prompt as pr
 
+OWL_PATH = os.path.join(os.path.dirname(__file__), "OWL", "Onto_aldeias.owl")
+
 app = Flask(__name__)
 CORS(app)
 
@@ -93,7 +95,7 @@ def get_subclasses():
         return jsonify({"error": "class parameter is required"}), 400
 
     # Carrega a ontologia e extrai as subclasses
-    g = op.load_ontology('back_end/src/OWL/Onto_aldeias.owl')
+    g = op.load_ontology(OWL_PATH)
     labels, labels_to_uris, descriptions = op.extract_labels(g, current_language)
     subclasses = pr.list_subclasses(g, class_uri, labels)
 
@@ -113,7 +115,7 @@ def get_class_details():
         return jsonify({"error": "class parameter is required"}), 400
 
     # Carrega a ontologia e extrai os detalhes da classe
-    g = op.load_ontology('back_end/src/OWL/Onto_aldeias.owl')
+    g = op.load_ontology(OWL_PATH)
     labels, labels_to_uris, descriptions = op.extract_labels(g, current_language)
     details = op.list_restrictions_and_data_properties(g, class_uri, labels, labels_to_uris, descriptions)
     response = json.dumps(details, ensure_ascii=False)

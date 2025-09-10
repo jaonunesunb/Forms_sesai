@@ -3,7 +3,7 @@ WORKDIR /app
 
 # instala exatamente o que está no lockfile
 COPY package.json package-lock.json ./
-RUN npm ci
+RUN npm ci --include=dev
 
 # copia o restante do código
 COPY . .
