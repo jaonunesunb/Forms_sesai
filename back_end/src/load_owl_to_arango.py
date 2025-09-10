@@ -53,5 +53,6 @@ def load_owl(file_path: str) -> None:
 
 
 if __name__ == "__main__":
-    owl_file = os.getenv("OWL_FILE", "back_end/src/OWL/Onto_aldeias.owl")
+    default_owl = os.path.join(os.path.dirname(__file__), "OWL", "Onto_aldeias.owl")
+    owl_file = os.getenv("OWL_FILE", default_owl)
     load_owl(owl_file)

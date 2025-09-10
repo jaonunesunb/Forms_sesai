@@ -14,7 +14,7 @@ __pycache__/
 *.iml
 *.log
 
-node_modules
+node_modules/
 
 # Diretório para uso pessoal
 _apoio
