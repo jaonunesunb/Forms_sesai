@@ -1,10 +1,12 @@
+import hashlib
 import json
 import os
-import hashlib
+import time
 from flask import Flask, Response, jsonify, request
 from flask_cors import CORS
 from arango import ArangoClient
 import psycopg2
+from psycopg2 import OperationalError
 import o_parse_back_end as op
 import prompt as pr
 
@@ -12,6 +14,8 @@ OWL_PATH = os.path.join(os.path.dirname(__file__), "OWL", "Onto_aldeias.owl")
 
 app = Flask(__name__)
 CORS(app)
+
+ontology_graph = op.load_ontology(OWL_PATH)
 
 # Conexão com ArangoDB
 ARANGO_URL = os.getenv("ARANGO_URL", "http://arango:8529")
@@ -26,25 +30,7 @@ POSTGRES_DSN = os.getenv(
     "POSTGRES_DSN",
     "postgresql://postgres:postgres@postgres:5432/forms",
 )
-pg_conn = psycopg2.connect(POSTGRES_DSN)
-pg_conn.autocommit = True
-with pg_conn.cursor() as cur:
-    cur.execute(
-        """
-        CREATE TABLE IF NOT EXISTS form_submissions (
-            id SERIAL PRIMARY KEY,
-            data JSONB
-        )
-        """
-    )
 
-# Variável global de idioma, com valor padrão como 'pt'
-current_language = 'pt'
-
-# em app.py
-import time
-import psycopg2
-from psycopg2 import OperationalError
 
 def connect_pg(dsn, retries=20, delay=1):
     for i in range(retries):
@@ -58,7 +44,56 @@ def connect_pg(dsn, retries=20, delay=1):
     raise
 
 pg_conn = connect_pg(POSTGRES_DSN)
+with pg_conn.cursor() as cur:
+    cur.execute(
+        """
+        CREATE TABLE IF NOT EXISTS form_submissions (
+            id SERIAL PRIMARY KEY,
+            data JSONB
+        )
+        """
+    )
+    cur.execute(
+        """
+        CREATE TABLE IF NOT EXISTS arango_classes (
+            class_uri TEXT PRIMARY KEY,
+            label TEXT
+        )
+        """
+    )
+    cur.execute(
+        """
+        CREATE TABLE IF NOT EXISTS arango_properties (
+            property_uri TEXT PRIMARY KEY,
+            label TEXT,
+            domain_uri TEXT,
+            range_uri TEXT
+        )
+        """
+    )
+    cur.execute(
+        """
+        CREATE TABLE IF NOT EXISTS vertex_instances (
+            id SERIAL PRIMARY KEY,
+            class_uri TEXT REFERENCES arango_classes(class_uri),
+            data JSONB
+        )
+        """
+    )
+    cur.execute(
+        """
+        CREATE TABLE IF NOT EXISTS edge_instances (
+            id SERIAL PRIMARY KEY,
+            edge_uri TEXT,
+            from_instance INTEGER REFERENCES vertex_instances(id),
+            to_instance INTEGER REFERENCES vertex_instances(id),
+            data JSONB
+        )
+        """
+    )
 
+# Variável global de idioma, com valor padrão como 'pt'
+current_language = 'pt'
 
 # Função para alterar o idioma global
 @app.route('/set_language', methods=['POST'])
@@ -87,6 +122,60 @@ def save_form_data():
         )
     return jsonify({"message": "Formulário recebido com sucesso!"}), 200
 
+@app.route('/save_instance', methods=['POST'])
+def save_instance():
+    payload = request.get_json()
+    class_uri = payload.get('class_uri')
+    data = payload.get('data')
+    if not class_uri or data is None:
+        return jsonify({"error": "class_uri and data are required"}), 400
+
+    class_key = hashlib.sha1(class_uri.encode()).hexdigest()
+    if not arango_db.collection('classes').has(class_key):
+        return jsonify({"error": "Class not found"}), 404
+
+    with pg_conn.cursor() as cur:
+        cur.execute(
+            "INSERT INTO form_submissions (data) VALUES (%s)",
+            (json.dumps(payload),),
+        )
+        cur.execute(
+            "INSERT INTO vertex_instances (class_uri, data) VALUES (%s, %s) RETURNING id",
+            (class_uri, json.dumps(data)),
+        )
+        instance_id = cur.fetchone()[0]
+
+    return jsonify({"message": "Instance saved", "id": instance_id}), 200
+
+
+@app.route('/save_edge', methods=['POST'])
+def save_edge():
+    payload = request.get_json()
+    edge_uri = payload.get('edge_uri')
+    from_id = payload.get('from_id')
+    to_id = payload.get('to_id')
+    data = payload.get('data', {})
+    if not edge_uri or from_id is None or to_id is None:
+        return jsonify({"error": "edge_uri, from_id and to_id are required"}), 400
+
+    with pg_conn.cursor() as cur:
+        cur.execute("SELECT 1 FROM vertex_instances WHERE id = %s", (from_id,))
+        if not cur.fetchone():
+            return jsonify({"error": "from_id not found"}), 404
+        cur.execute("SELECT 1 FROM vertex_instances WHERE id = %s", (to_id,))
+        if not cur.fetchone():
+            return jsonify({"error": "to_id not found"}), 404
+        cur.execute(
+            """
+            INSERT INTO edge_instances (edge_uri, from_instance, to_instance, data)
+            VALUES (%s, %s, %s, %s) RETURNING id
+            """,
+            (edge_uri, from_id, to_id, json.dumps(data)),
+        )
+        edge_id = cur.fetchone()[0]
+
+    return jsonify({"message": "Edge saved", "id": edge_id}), 200
+
 # Função para buscar subclasses
 @app.route('/get_subclasses', methods=['GET'])
 def get_subclasses():
@@ -94,10 +183,9 @@ def get_subclasses():
     if not class_uri:
         return jsonify({"error": "class parameter is required"}), 400
 
-    # Carrega a ontologia e extrai as subclasses
-    g = op.load_ontology(OWL_PATH)
-    labels, labels_to_uris, descriptions = op.extract_labels(g, current_language)
-    subclasses = pr.list_subclasses(g, class_uri, labels)
+    # Usa a ontologia carregada e extrai as subclasses
+    labels, labels_to_uris, descriptions = op.extract_labels(ontology_graph, current_language)
+    subclasses = pr.list_subclasses(ontology_graph, class_uri, labels)
 
     # Adicionar a descrição ao JSON de subclasses
     for subclass in subclasses:
@@ -114,10 +202,9 @@ def get_class_details():
     if not class_uri:
         return jsonify({"error": "class parameter is required"}), 400
 
-    # Carrega a ontologia e extrai os detalhes da classe
-    g = op.load_ontology(OWL_PATH)
-    labels, labels_to_uris, descriptions = op.extract_labels(g, current_language)
-    details = op.list_restrictions_and_data_properties(g, class_uri, labels, labels_to_uris, descriptions)
+     # Usa a ontologia carregada e extrai os detalhes da classe
+    labels, labels_to_uris, descriptions = op.extract_labels(ontology_graph, current_language)
+    details = op.list_restrictions_and_data_properties(ontology_graph, class_uri, labels, labels_to_uris, descriptions)
     response = json.dumps(details, ensure_ascii=False)
     return Response(response, content_type='application/json; charset=utf-8')
 
@@ -148,6 +235,12 @@ def get_class_details_arango():
         return jsonify({"error": "Class not found"}), 404
     return jsonify(doc)
 
+# Endpoint para recarregar a ontologia em memória
+@app.route('/refresh_ontology', methods=['POST'])
+def refresh_ontology():
+    global ontology_graph
+    ontology_graph = op.load_ontology(OWL_PATH, force_reload=True)
+    return jsonify({"message": "Ontology reloaded"}), 200
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=int(os.getenv("PORT", 5000)), debug=True)

@@ -9,7 +9,7 @@ const capitalize = (text) => {
   return text.charAt(0).toUpperCase() + text.slice(1);
 };
 
-const DynamicForm = ({ formData }) => {
+const DynamicForm = ({ formData, classUri }) => {
   const [formState, setFormState] = useState({});
   const [errors, setErrors] = useState({});
   const [dynamicFields, setDynamicFields] = useState([]);
@@ -181,12 +181,12 @@ const DynamicForm = ({ formData }) => {
 
     if (Object.keys(newErrors).length === 0) {
       try {
-        const response = await fetch('http://127.0.0.1:5000/save_form_data', {
+       const response = await fetch('http://127.0.0.1:5000/save_instance', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(validFormState), // Envia todos os dados válidos
+          body: JSON.stringify({ class_uri: classUri, data: validFormState }),
         });
 
         if (response.ok) {

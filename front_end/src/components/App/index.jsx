@@ -19,6 +19,7 @@ export const App = ({ selectedDocumentUri, formTitle = '' }) => {
 
   const [previousActivityLabel, setPreviousActivityLabel] = useState(''); // Estado para armazenar o label da subclasse selecionada
   const [formData, setFormData] = useState(null);
+  const [currentClassUri, setCurrentClassUri] = useState(null);
   const [formLoading, setFormLoading] = useState(false);
   const [error, setError] = useState(null);
   const [language, setLanguage] = useState('pt'); // Estado que controla o idioma
@@ -122,6 +123,7 @@ export const App = ({ selectedDocumentUri, formTitle = '' }) => {
       if (!response.ok) throw new Error('Erro ao carregar dados do formulário');
       const data = await response.json();
       setFormData(data);
+      setCurrentClassUri(uri);
       setFormLoading(false);
     } catch (err) {
       console.error(err);
@@ -193,8 +195,8 @@ export const App = ({ selectedDocumentUri, formTitle = '' }) => {
             {formLoading && <div className="br-card"><div className="card-content">{language === 'pt' ? 'Carregando formulário...' : 'Loading form...'}</div></div>}
             {formData && !formLoading && (
               language === 'pt'
-                ? <DynamicForm formData={formData} />
-                : <DynamicForm formData={formData} />
+                ? <DynamicForm formData={formData} classUri={currentClassUri} />
+                : <DynamicForm formData={formData} classUri={currentClassUri} />
             )}
           </div>
         </div>

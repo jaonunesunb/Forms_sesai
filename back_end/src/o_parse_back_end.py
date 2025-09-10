@@ -7,11 +7,17 @@ LANGUAGE = 'pt'
 # URI da propriedade "é select"
 SELECT_DP_URI = URIRef("http://www.semanticweb.org/ontologias/SESAI/ontoAldeias_00000613")
 
+# Cache da ontologia carregada
+_ONTOLOGY_GRAPH = None
+
 # Carregar a ontologia OWL
-def load_ontology(file_path):
-    g = Graph()
-    g.parse(file_path, format='xml')
-    return g
+def load_ontology(file_path, force_reload=False):
+    global _ONTOLOGY_GRAPH
+    if _ONTOLOGY_GRAPH is None or force_reload:
+        g = Graph()
+        g.parse(file_path, format='xml')
+        _ONTOLOGY_GRAPH = g
+    return _ONTOLOGY_GRAPH
 
 # Identificar classes que devem renderizar como select
 def get_selectable_classes(g):
