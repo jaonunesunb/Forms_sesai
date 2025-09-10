@@ -33,7 +33,7 @@ services:
       ARANGO_URL: http://arango:8529
       ARANGO_DB: owl_db
       ARANGO_USER: root
-      ARANGO_PASSWORD: ""
+      ARANGO_PASSWORD: pwd
     depends_on:
       postgres:
         condition: service_healthy
