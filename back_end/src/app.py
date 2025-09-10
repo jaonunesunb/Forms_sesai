@@ -1,11 +1,40 @@
 import json
+import os
+import hashlib
 from flask import Flask, Response, jsonify, request
 from flask_cors import CORS
-import o_parse_back_end as op 
+from arango import ArangoClient
+import psycopg2
+import o_parse_back_end as op
 import prompt as pr
 
 app = Flask(__name__)
 CORS(app)
+
+# Conexão com ArangoDB
+ARANGO_URL = os.getenv("ARANGO_URL", "http://arango:8529")
+ARANGO_DB = os.getenv("ARANGO_DB", "owl_db")
+ARANGO_USER = os.getenv("ARANGO_USER", "root")
+ARANGO_PASSWORD = os.getenv("ARANGO_PASSWORD", "")
+arango_client = ArangoClient(hosts=ARANGO_URL)
+arango_db = arango_client.db(ARANGO_DB, username=ARANGO_USER, password=ARANGO_PASSWORD)
+
+# Conexão com PostgreSQL
+POSTGRES_DSN = os.getenv(
+    "POSTGRES_DSN",
+    "postgresql://postgres:postgres@postgres:5432/forms",
+)
+pg_conn = psycopg2.connect(POSTGRES_DSN)
+pg_conn.autocommit = True
+with pg_conn.cursor() as cur:
+    cur.execute(
+        """
+        CREATE TABLE IF NOT EXISTS form_submissions (
+            id SERIAL PRIMARY KEY,
+            data JSONB
+        )
+        """
+    )
 
 # Variável global de idioma, com valor padrão como 'pt'
 current_language = 'pt'
@@ -29,11 +58,12 @@ def get_language():
 
 @app.route('/save_form_data', methods=['POST'])
 def save_form_data():
-    data = request.get_json()  # Recebe os dados do formulário
-    print(data)  # Verifique os dados no console
-    # Salva os dados do formulário em um arquivo JSON
-    with open('form_data.json', 'w', encoding='utf-8') as f:
-        json.dump(data, f, ensure_ascii=False, indent=4)
+    data = request.get_json()
+    with pg_conn.cursor() as cur:
+        cur.execute(
+            "INSERT INTO form_submissions (data) VALUES (%s)",
+            (json.dumps(data),),
+        )
     return jsonify({"message": "Formulário recebido com sucesso!"}), 200
 
 # Função para buscar subclasses
@@ -69,6 +99,33 @@ def get_class_details():
     details = op.list_restrictions_and_data_properties(g, class_uri, labels, labels_to_uris, descriptions)
     response = json.dumps(details, ensure_ascii=False)
     return Response(response, content_type='application/json; charset=utf-8')
+
+
+# Endpoints utilizando dados do ArangoDB
+@app.route('/get_subclasses_arango', methods=['GET'])
+def get_subclasses_arango():
+    class_uri = request.args.get('class')
+    if not class_uri:
+        return jsonify({"error": "class parameter is required"}), 400
+    class_key = hashlib.sha1(class_uri.encode()).hexdigest()
+    cursor = arango_db.aql.execute(
+        "FOR v, e IN 1..1 OUTBOUND @start class_edges RETURN v",
+        bind_vars={"start": f"classes/{class_key}"},
+    )
+    subclasses = list(cursor)
+    return jsonify({"subclasses": subclasses})
+
+
+@app.route('/get_class_details_arango', methods=['GET'])
+def get_class_details_arango():
+    class_uri = request.args.get('class')
+    if not class_uri:
+        return jsonify({"error": "class parameter is required"}), 400
+    class_key = hashlib.sha1(class_uri.encode()).hexdigest()
+    doc = arango_db.collection('classes').get(class_key)
+    if not doc:
+        return jsonify({"error": "Class not found"}), 404
+    return jsonify(doc)
 
 
 if __name__ == '__main__':
