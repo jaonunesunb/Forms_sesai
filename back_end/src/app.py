@@ -15,13 +15,11 @@ OWL_PATH = os.path.join(os.path.dirname(__file__), "OWL", "Onto_aldeias.owl")
 app = Flask(__name__)
 CORS(app)
 
-ontology_graph = op.load_ontology(OWL_PATH)
-
 # Conexão com ArangoDB
 ARANGO_URL = os.getenv("ARANGO_URL", "http://arango:8529")
 ARANGO_DB = os.getenv("ARANGO_DB", "owl_db")
 ARANGO_USER = os.getenv("ARANGO_USER", "root")
-ARANGO_PASSWORD = os.getenv("ARANGO_PASSWORD", "pwd")
+ARANGO_PASSWORD = os.getenv("ARANGO_PASSWORD", "")
 arango_client = ArangoClient(hosts=ARANGO_URL)
 arango_db = arango_client.db(ARANGO_DB, username=ARANGO_USER, password=ARANGO_PASSWORD)
 
@@ -140,10 +138,6 @@ def save_instance():
             (json.dumps(payload),),
         )
         cur.execute(
-            "INSERT INTO arango_classes (class_uri) VALUES (%s) ON CONFLICT DO NOTHING",
-            (class_uri,),
-        )
-        cur.execute(
             "INSERT INTO vertex_instances (class_uri, data) VALUES (%s, %s) RETURNING id",
             (class_uri, json.dumps(data)),
         )
@@ -187,9 +181,10 @@ def get_subclasses():
     if not class_uri:
         return jsonify({"error": "class parameter is required"}), 400
 
-    # Usa a ontologia carregada e extrai as subclasses
-    labels, labels_to_uris, descriptions = op.extract_labels(ontology_graph, current_language)
-    subclasses = pr.list_subclasses(ontology_graph, class_uri, labels)
+    # Carrega a ontologia e extrai as subclasses
+    g = op.load_ontology(OWL_PATH)
+    labels, labels_to_uris, descriptions = op.extract_labels(g, current_language)
+    subclasses = pr.list_subclasses(g, class_uri, labels)
 
     # Adicionar a descrição ao JSON de subclasses
     for subclass in subclasses:
@@ -206,9 +201,10 @@ def get_class_details():
     if not class_uri:
         return jsonify({"error": "class parameter is required"}), 400
 
-     # Usa a ontologia carregada e extrai os detalhes da classe
-    labels, labels_to_uris, descriptions = op.extract_labels(ontology_graph, current_language)
-    details = op.list_restrictions_and_data_properties(ontology_graph, class_uri, labels, labels_to_uris, descriptions)
+    # Carrega a ontologia e extrai os detalhes da classe
+    g = op.load_ontology(OWL_PATH)
+    labels, labels_to_uris, descriptions = op.extract_labels(g, current_language)
+    details = op.list_restrictions_and_data_properties(g, class_uri, labels, labels_to_uris, descriptions)
     response = json.dumps(details, ensure_ascii=False)
     return Response(response, content_type='application/json; charset=utf-8')
 
@@ -239,12 +235,6 @@ def get_class_details_arango():
         return jsonify({"error": "Class not found"}), 404
     return jsonify(doc)
 
-# Endpoint para recarregar a ontologia em memória
-@app.route('/refresh_ontology', methods=['POST'])
-def refresh_ontology():
-    global ontology_graph
-    ontology_graph = op.load_ontology(OWL_PATH, force_reload=True)
-    return jsonify({"message": "Ontology reloaded"}), 200
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=int(os.getenv("PORT", 5000)), debug=True)
