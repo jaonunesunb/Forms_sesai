@@ -13,7 +13,11 @@ import prompt as pr
 OWL_PATH = os.path.join(os.path.dirname(__file__), "OWL", "Onto_aldeias.owl")
 
 app = Flask(__name__)
-CORS(app)
+CORS(
+    app,
+    resources={r"/*": {"origins": ["http://localhost:3000", "http://127.0.0.1:3000"]}},
+    supports_credentials=True,
+)
 
 # Conexão com ArangoDB
 ARANGO_URL = os.getenv("ARANGO_URL", "http://arango:8529")
@@ -93,6 +97,17 @@ with pg_conn.cursor() as cur:
 # Variável global de idioma, com valor padrão como 'pt'
 current_language = 'pt'
 
+@app.after_request
+def add_cors_headers(resp):
+    # Fallback explícito (útil para preflight e erros)
+    origin = request.headers.get("Origin")
+    if origin in ("http://localhost:3000", "http://127.0.0.1:3000"):
+        resp.headers["Access-Control-Allow-Origin"] = origin
+    resp.headers["Access-Control-Allow-Credentials"] = "true"
+    resp.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
+    resp.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
+    return resp
+
 # Função para alterar o idioma global
 @app.route('/set_language', methods=['POST'])
 def set_language():
@@ -120,27 +135,43 @@ def save_form_data():
         )
     return jsonify({"message": "Formulário recebido com sucesso!"}), 200
 
-@app.route('/save_instance', methods=['POST'])
+@app.route('/save_instance', methods=['POST','OPTIONS'])
 def save_instance():
-    payload = request.get_json()
+    if request.method == 'OPTIONS':
+        return ('', 204)
+
+    payload = request.get_json(silent=True) or {}
     class_uri = payload.get('class_uri')
     data = payload.get('data')
     if not class_uri or data is None:
         return jsonify({"error": "class_uri and data are required"}), 400
 
+    # Confere a classe no Arango e obtém label
     class_key = hashlib.sha1(class_uri.encode()).hexdigest()
-    if not arango_db.collection('classes').has(class_key):
+    classes_col = arango_db.collection('classes')
+    if not classes_col.has(class_key):
         return jsonify({"error": "Class not found"}), 404
+    cls_doc = classes_col.get(class_key) or {}
+    cls_label = cls_doc.get('label')
 
     with pg_conn.cursor() as cur:
-        cur.execute(
-            "INSERT INTO form_submissions (data) VALUES (%s)",
-            (json.dumps(payload),),
-        )
-        cur.execute(
-            "INSERT INTO vertex_instances (class_uri, data) VALUES (%s, %s) RETURNING id",
-            (class_uri, json.dumps(data)),
-        )
+        # 1) GARANTE a classe na tabela referenciada pela FK
+        cur.execute("""
+            INSERT INTO arango_classes (class_uri, label)
+            VALUES (%s, %s)
+            ON CONFLICT (class_uri) DO UPDATE SET label = EXCLUDED.label
+        """, (class_uri, cls_label))
+
+        # 2) (opcional) guarda o payload bruto
+        cur.execute("INSERT INTO form_submissions (data) VALUES (%s)",
+                    (json.dumps(payload),))
+
+        # 3) Agora pode inserir a instância sem quebrar a FK
+        cur.execute("""
+            INSERT INTO vertex_instances (class_uri, data)
+            VALUES (%s, %s)
+            RETURNING id
+        """, (class_uri, json.dumps(data)))
         instance_id = cur.fetchone()[0]
 
     return jsonify({"message": "Instance saved", "id": instance_id}), 200
