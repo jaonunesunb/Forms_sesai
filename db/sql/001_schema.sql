@@ -88,17 +88,23 @@ CREATE TABLE IF NOT EXISTS form_field (
 CREATE TABLE IF NOT EXISTS submission (
   id             BIGSERIAL PRIMARY KEY,
   form_id        INTEGER NOT NULL REFERENCES form(id) ON UPDATE CASCADE ON DELETE RESTRICT,
+  form_version   INTEGER NOT NULL,
   aldeia_id      INTEGER NOT NULL REFERENCES aldeia(id) ON UPDATE CASCADE ON DELETE RESTRICT,
   submitted_by   INTEGER REFERENCES users(id) ON UPDATE CASCADE,
   submitted_at   TIMESTAMPTZ NOT NULL DEFAULT now(),
   status         TEXT NOT NULL DEFAULT 'ok',
-  raw_payload    JSONB
+  raw_payload    JSONB,
+  created_at     TIMESTAMPTZ NOT NULL DEFAULT now(),
+  created_by     INTEGER REFERENCES users(id) ON UPDATE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS submission_value (
   submission_id  BIGINT NOT NULL REFERENCES submission(id) ON DELETE CASCADE,
   form_field_id  INTEGER NOT NULL REFERENCES form_field(id) ON UPDATE CASCADE ON DELETE RESTRICT,
   field_id       INTEGER NOT NULL REFERENCES field_catalog(id) ON UPDATE CASCADE ON DELETE RESTRICT,
+  form_version   INTEGER NOT NULL,
+  created_at     TIMESTAMPTZ NOT NULL DEFAULT now(),
+  created_by     INTEGER REFERENCES users(id) ON UPDATE CASCADE,
   value_text     TEXT,
   value_num      NUMERIC,
   value_bool     BOOLEAN,
@@ -119,4 +125,30 @@ CREATE TABLE IF NOT EXISTS arango_properties (
   label        TEXT,
   domain_uri   TEXT,
   range_uri    TEXT
+);
+
+-- 6) Log de auditoria
+CREATE TABLE IF NOT EXISTS audit_log (
+  id         BIGSERIAL PRIMARY KEY,
+  user_id    INTEGER REFERENCES users(id) ON UPDATE CASCADE ON DELETE SET NULL,
+  action     TEXT NOT NULL,
+  payload    JSONB,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+-- 7) Metadados de sincronização
+CREATE TABLE IF NOT EXISTS ontology_sync (
+  id         SERIAL PRIMARY KEY,
+  source_uri TEXT NOT NULL,
+  signature  TEXT NOT NULL,
+  payload    JSONB,
+  synced_at  TIMESTAMPTZ NOT NULL DEFAULT now(),
+  UNIQUE (source_uri, signature)
+);
+
+CREATE TABLE IF NOT EXISTS form_definition_signature (
+  form_id   INTEGER PRIMARY KEY REFERENCES form(id) ON DELETE CASCADE,
+  signature TEXT NOT NULL,
+  field_ids INTEGER[] NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
