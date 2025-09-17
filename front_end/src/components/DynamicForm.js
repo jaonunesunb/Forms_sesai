@@ -21,7 +21,7 @@ const DynamicForm = ({ formData, classUri }) => {
     if (value && dataType && dataType.length > 0) {
       switch (dataType[0]) {
         case 'http://www.w3.org/2001/XMLSchema#date':
-          if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+          if (!/^\d{2}-\d{2}-\d{4}$/.test(value)) {
             error = 'Data inválida. Use o formato DD-MM-AAAA.';
           }
           break;
@@ -181,17 +181,23 @@ const DynamicForm = ({ formData, classUri }) => {
 
     if (Object.keys(newErrors).length === 0) {
       try {
+       const submissionData = {
+          ...validFormState,
+          submitted_by: 'adm',
+          submitted_at: new Date().toISOString(),
+        };
+
        const response = await fetch('http://localhost:5000/save_instance', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ class_uri: classUri, data: validFormState }),
+          body: JSON.stringify({ class_uri: classUri, data: submissionData }),
         });
 
         if (response.ok) {
           console.log('Formulário enviado com sucesso!');
-          downloadJSON(validFormState, 'form_data.json');
+          downloadJSON(submissionData, 'form_data.json');
         } else {
           console.error('Erro ao enviar o formulário');
         }

@@ -3,3 +3,10 @@ build
 .git
 npm-debug.log
 .DS_Store
+dist
+.git
+.gitignore
+Dockerfile
+Dockerfile.*
+docker-compose.yml
+*.log

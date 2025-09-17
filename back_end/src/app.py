@@ -2,20 +2,36 @@ import hashlib
 import json
 import os
 import time
-from flask import Flask, Response, jsonify, request
+from flask import Flask, Response, jsonify, make_response, request
 from flask_cors import CORS
 from arango import ArangoClient
 import psycopg2
 from psycopg2 import OperationalError
 import o_parse_back_end as op
 import prompt as pr
+from arango.exceptions import (
+    ArangoServerError,
+    CollectionNotFoundError,
+    DocumentNotFoundError,
+)
 
 OWL_PATH = os.path.join(os.path.dirname(__file__), "OWL", "Onto_aldeias.owl")
 
 app = Flask(__name__)
+_default_allowed_origins = ["http://localhost:3000", "http://127.0.0.1:3000"]
+_allowed_origins_env = os.getenv("ALLOWED_ORIGINS")
+if _allowed_origins_env:
+    ALLOWED_ORIGINS = [
+        origin.strip()
+        for origin in _allowed_origins_env.split(",")
+        if origin.strip()
+    ]
+else:
+    ALLOWED_ORIGINS = _default_allowed_origins
+    
 CORS(
     app,
-    resources={r"/*": {"origins": ["http://localhost:3000", "http://127.0.0.1:3000"]}},
+    resources={r"/*": {"origins": ALLOWED_ORIGINS}},
     supports_credentials=True,
 )
 
@@ -101,7 +117,7 @@ current_language = 'pt'
 def add_cors_headers(resp):
     # Fallback explícito (útil para preflight e erros)
     origin = request.headers.get("Origin")
-    if origin in ("http://localhost:3000", "http://127.0.0.1:3000"):
+    if origin in ALLOWED_ORIGINS:
         resp.headers["Access-Control-Allow-Origin"] = origin
     resp.headers["Access-Control-Allow-Credentials"] = "true"
     resp.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
@@ -148,31 +164,48 @@ def save_instance():
 
     # Confere a classe no Arango e obtém label
     class_key = hashlib.sha1(class_uri.encode()).hexdigest()
-    classes_col = arango_db.collection('classes')
-    if not classes_col.has(class_key):
-        return jsonify({"error": "Class not found"}), 404
-    cls_doc = classes_col.get(class_key) or {}
-    cls_label = cls_doc.get('label')
+    try:
+        classes_col = arango_db.collection('classes')
+        if not classes_col.has(class_key):
+            return jsonify({"error": "Class not found"}), 404
+        cls_doc = classes_col.get(class_key) or {}
+        cls_label = cls_doc.get('label')
 
-    with pg_conn.cursor() as cur:
-        # 1) GARANTE a classe na tabela referenciada pela FK
-        cur.execute("""
-            INSERT INTO arango_classes (class_uri, label)
-            VALUES (%s, %s)
-            ON CONFLICT (class_uri) DO UPDATE SET label = EXCLUDED.label
-        """, (class_uri, cls_label))
+        with pg_conn.cursor() as cur:
+            # 1) GARANTE a classe na tabela referenciada pela FK
+            cur.execute("""
+                INSERT INTO arango_classes (class_uri, label)
+                VALUES (%s, %s)
+                ON CONFLICT (class_uri) DO UPDATE SET label = EXCLUDED.label
+            """, (class_uri, cls_label))
 
-        # 2) (opcional) guarda o payload bruto
-        cur.execute("INSERT INTO form_submissions (data) VALUES (%s)",
-                    (json.dumps(payload),))
+            # 2) (opcional) guarda o payload bruto
+            cur.execute("INSERT INTO form_submissions (data) VALUES (%s)",
+                        (json.dumps(payload),))
 
-        # 3) Agora pode inserir a instância sem quebrar a FK
-        cur.execute("""
-            INSERT INTO vertex_instances (class_uri, data)
-            VALUES (%s, %s)
-            RETURNING id
-        """, (class_uri, json.dumps(data)))
-        instance_id = cur.fetchone()[0]
+            # 3) Agora pode inserir a instância sem quebrar a FK
+            cur.execute("""
+                INSERT INTO vertex_instances (class_uri, data)
+                VALUES (%s, %s)
+                RETURNING id
+            """, (class_uri, json.dumps(data)))
+            instance_id = cur.fetchone()[0]
+    except DocumentNotFoundError:
+        app.logger.exception("Class %s not found in Arango", class_uri)
+        response = make_response(jsonify({"error": "Class not found"}), 404)
+        return add_cors_headers(response)
+    except CollectionNotFoundError:
+        app.logger.exception("Classes collection unavailable in Arango")
+        response = make_response(jsonify({"error": "Coleção de classes indisponível"}), 503)
+        return add_cors_headers(response)
+    except ArangoServerError:
+        app.logger.exception("ArangoDB unavailable while fetching class %s", class_uri)
+        response = make_response(jsonify({"error": "Arango indisponível"}), 503)
+        return add_cors_headers(response)
+    except psycopg2.Error:
+        app.logger.exception("Failed to persist instance for class %s", class_uri)
+        response = make_response(jsonify({"error": "Erro ao salvar no PostgreSQL"}), 500)
+        return add_cors_headers(response)
 
     return jsonify({"message": "Instance saved", "id": instance_id}), 200
 
