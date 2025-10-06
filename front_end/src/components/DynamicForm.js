@@ -187,7 +187,7 @@ const DynamicForm = ({ formData, classUri }) => {
           submitted_at: new Date().toISOString(),
         };
 
-       const response = await fetch('http://localhost:5000/save_instance', {
+       const response = await fetch('/save_instance', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

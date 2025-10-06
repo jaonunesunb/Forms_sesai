@@ -6,7 +6,7 @@ services:
       POSTGRES_PASSWORD: solo01
       POSTGRES_DB: forms
     ports:
-      - "5432:5432"
+      - "5433:5432"
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U pedro -d $${POSTGRES_DB}"]
       interval: 5s
@@ -47,9 +47,14 @@ services:
     build:
       context: ./front_end
       dockerfile: Dockerfile
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
+      WATCHPACK_POLLING: "true"
+      WDS_SOCKET_PORT: "0"
     ports:
       - "3000:3000"
     volumes:
       - ./front_end:/app
+      - /app/node_modules
     depends_on:
       - backend
